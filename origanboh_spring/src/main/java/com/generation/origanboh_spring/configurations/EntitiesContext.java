@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import com.generation.origanboh_spring.dto.LoginStatus;
 import com.generation.origanboh_spring.entities.Cliente;
 import com.generation.origanboh_spring.entities.Libro;
 
@@ -62,7 +63,13 @@ public class EntitiesContext {
         return l;
     }
 
-    //TO:DO LOGIN STATUS
+    @Bean
+    @Scope("prototype")
+    public LoginStatus newLoginStatus(String ruolo, int idUtente){
+        LoginStatus ls = new LoginStatus();
+        ls.setToken(ruolo, idUtente);
+        return ls;
+    }
 
     
 }
