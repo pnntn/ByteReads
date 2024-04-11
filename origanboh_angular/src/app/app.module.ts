@@ -3,30 +3,37 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponentComponent } from './header-component/header-component.component';
-import { NavbarComponentComponent } from './headerComponent/navbar-component/navbar-component.component';
-import { BooklistComponentComponent } from './booklist-component/booklist-component.component';
-import { BookdetailComponentComponent } from './bookdetail-component/bookdetail-component.component';
-import { LoginFormComponentComponent } from './login-form-component/login-form-component.component';
-import { CartComponentComponent } from './cart-component/cart-component.component';
-import { FooterComponentComponent } from './footer-component/footer-component.component';
+import { HeaderComponent } from './header/header.component';
+import { NavbarComponent } from './header/navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { BooklistComponent } from './booklist/booklist.component';
+import { BookComponent } from './booklist/book/book.component';
+import { BookdetailComponent } from './bookdetail/bookdetail.component';
+import { CartComponent } from './cart/cart.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponentComponent,
-    NavbarComponentComponent,
-    BooklistComponentComponent,
-    BookdetailComponentComponent,
-    LoginFormComponentComponent,
-    CartComponentComponent,
-    FooterComponentComponent
+    HeaderComponent,
+    NavbarComponent,
+    FooterComponent,
+    BooklistComponent,
+    BookComponent,
+    BookdetailComponent,
+    CartComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

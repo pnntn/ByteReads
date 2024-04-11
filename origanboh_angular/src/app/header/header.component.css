@@ -1,0 +1,11 @@
+header {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+}
