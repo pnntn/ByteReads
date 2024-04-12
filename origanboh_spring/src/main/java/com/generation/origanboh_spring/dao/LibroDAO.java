@@ -31,7 +31,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
 
     @Override
     public Map<Integer, Entity> read() {
-        String query = "select p.*, s.autore, s.genere from prodotti p join libri l on p.id = l.id";
+        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query);
         Map<Integer, Entity> ris = new HashMap<>();
 
@@ -44,7 +44,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
 
     @Override
     public Libro readById(Integer idLibro) {
-        String query = "select p.*, s.autore, s.genere from prodotti p join libri l on p.id = l.id where id=?";
+        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where id=?";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, idLibro+"");
         
         Libro l = null;
@@ -55,7 +55,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
     }
 
     public Map<Integer, Entity> readByName(String nome){
-        String query = "select p.*, s.autore, s.genere from prodotti p join libri l on p.id = l.id where p.nome_prodotto like(concat(concat('%', ?), '%'))";
+        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where p.nome_prodotto like(concat(concat('%', ?), '%'))";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, nome);
         Map<Integer, Entity> ris = new HashMap<>();
 
