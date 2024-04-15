@@ -34,7 +34,7 @@ public class ClienteRestController {
         String ruolo = token.split("-")[0];
         int idUtente = Integer.parseInt(token.split("-")[1]);
 
-        if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
+        if(!ruolo.equalsIgnoreCase("ADMIN") || idUtente == -1){
             return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
         }
         else{

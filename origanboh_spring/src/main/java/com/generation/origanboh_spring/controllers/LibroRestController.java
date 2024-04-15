@@ -71,7 +71,7 @@ public class LibroRestController {
              return false;
          }
  
-         if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
+         if(!ruolo.equalsIgnoreCase("ADMIN") || idUtente == -1){
              return false;
          }
          else{
@@ -83,7 +83,7 @@ public class LibroRestController {
      public Libro insert(@RequestBody Map<String, String> params, @RequestHeader("token") String token){
          String ruolo = token.split("-")[0];
          int idUtente = Integer.parseInt(token.split("-")[1]);
-         if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
+         if(!ruolo.equalsIgnoreCase("ADMIN") || idUtente == -1){
              return null;
          }
          else{
@@ -96,7 +96,7 @@ public class LibroRestController {
      public boolean update(@RequestBody Map<String, String> params, @RequestHeader("token") String token){
          String ruolo = token.split("-")[0];
          int idUtente = Integer.parseInt(token.split("-")[1]);
-         if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
+         if(!ruolo.equalsIgnoreCase("ADMIN") || idUtente == -1){
              return false;
          }
          else{

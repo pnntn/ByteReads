@@ -25,7 +25,7 @@ public class AdminRestController {
         String ruolo = token.split("-")[0];
         int idPersona = Integer.parseInt(token.split("-")[1]);
 
-        if(ruolo.equalsIgnoreCase("NONE") || idPersona == -1){
+        if(!ruolo.equalsIgnoreCase("ADMIN") || idPersona == -1){
             return null;
         }
         else{
