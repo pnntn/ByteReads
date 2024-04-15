@@ -62,9 +62,9 @@ export class CustomerareaComponent {
       }
     )
 
-    const params = new HttpParams().set('idStudente', id);
+    const params = new HttpParams().set('idCliente', id);
 
-    this.http.get("http://localhost:8080/api/studente/byId", {headers, params},).subscribe(risposta =>{
+    this.http.get("http://localhost:8080/api/cliente/byId", {headers, params},).subscribe(risposta =>{
       console.log(risposta);
     
       this.cliente = risposta as Cliente;
