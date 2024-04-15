@@ -7,6 +7,7 @@ const routes: Routes = [
     path: 'dettaglio',
     component: BookdetailComponent,
   },
+  { path: 'area-admin', component: BookdetailComponent },
 ];
 
 @NgModule({
