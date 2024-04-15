@@ -14,6 +14,9 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerareaComponent } from './customerarea/customerarea.component';
+import { DevModeComponent } from './dev-mode/dev-mode.component';
+import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-utenti.component';
+import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { CustomerareaComponent } from './customerarea/customerarea.component';
     CartComponent,
     LoginFormComponent,
     CustomerareaComponent,
+    DevModeComponent,
+    GestioneUtentiComponent,
+    GestioneProdottiComponent,
   ],
   imports: [
     BrowserModule,

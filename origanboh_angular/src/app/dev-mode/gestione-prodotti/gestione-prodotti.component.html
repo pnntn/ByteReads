@@ -1,0 +1,98 @@
+<div *ngIf="isModificaLibro" class="modal">
+    <h4>Modifica libro</h4>
+    <button (click)="toggleModificaLibro()">CHIUDI</button>
+    <form [formGroup]="formModificaLibro" (ngSubmit)="submitModificaLibro()">
+        <input type="hidden" formControlName="id">
+
+        <label for="nomeProdotto">Titolo: </label>
+        <input type="text" name="nomeProdotto" formControlName="nomeProdotto">
+        <br>
+
+        <label for="autore">Autore: </label>
+        <input type="text" name="autore" formControlName="autore">
+        <br>
+
+        <label for="genere">Genere: </label>
+        <input type="text" name="genere" formControlName="genere">
+        <br>
+
+        <label for="prezzo">Prezzo: </label>
+        <input type="number" name="prezzo" formControlName="prezzo">
+        <br>
+
+        <label for="stock">Quantità: </label>
+        <input type="number" name="stock" formControlName="stock">
+        <br>
+
+        <label for="descrzione">Descrizione: </label>
+        <input type="text" name="descrzione" formControlName="descrzione">
+        <br>
+
+        <label for="ImgSource">Link immagine: </label>
+        <input type="text" name="ImgSource" formControlName="ImgSource">
+        <br>
+    </form>
+</div>
+
+<div *ngIf="isInserisciLibro" class="modal">
+    <h4>Nuovo libro</h4>
+    <button (click)="toggleInserisciLibro()">CHIUDI</button>
+    <form [formGroup]="formInserisciLibro" (ngSubmit)="submitInserisciLibro()">
+        <label for="nomeProdotto">Titolo: </label>
+        <input type="text" name="nomeProdotto" formControlName="nomeProdotto">
+        <br>
+
+        <label for="autore">Autore: </label>
+        <input type="text" name="autore" formControlName="autore">
+        <br>
+
+        <label for="genere">Genere: </label>
+        <input type="text" name="genere" formControlName="genere">
+        <br>
+
+        <label for="prezzo">Prezzo: </label>
+        <input type="number" name="prezzo" formControlName="prezzo">
+        <br>
+
+        <label for="stock">Quantità: </label>
+        <input type="number" name="stock" formControlName="stock">
+        <br>
+
+        <label for="descrzione">Descrizione: </label>
+        <input type="text" name="descrzione" formControlName="descrzione">
+        <br>
+
+        <label for="ImgSource">Link immagine: </label>
+        <input type="text" name="ImgSource" formControlName="ImgSource">
+        <br>
+    </form>
+</div>
+
+<button (click)="toggleInserisciLibro()" *ngIf="!isInserisciLibro">Inserisci un nuovo libro</button>
+
+<div>
+    <!--DA AGGIUNGERE-->
+    <!--<app-ricercalibro>(search)="searchCallback($event)"</app-ricercalibro>-->
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Titolo</th>
+            <th>Autore</th>
+            <th>Genere</th>
+            <th>Prezzo</th>
+            <th>Quantità</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let libro of libri">
+                <td>{{libro.id}}</td>
+                <td>{{libro.nomeProdotto}}</td>
+                <td>{{libro.autore}}</td>
+                <td>{{libro.genere}}</td>
+                <td>{{libro.prezzo}}</td>
+                <td>{{libro.stock}}</td>
+                <td><button (click)="deleteLibro(libro.id)">Elimina</button></td>
+                <td><button (click)="modificaLibro(libro)">Modifica</button></td>
+            </tr>
+        </tbody>
+    </table> 
+</div>
