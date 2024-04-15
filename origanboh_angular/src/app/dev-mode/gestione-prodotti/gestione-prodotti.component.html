@@ -31,9 +31,11 @@
         <label for="ImgSource">Link immagine: </label>
         <input type="text" name="ImgSource" formControlName="ImgSource">
         <br>
+        
+        <input type="submit" value="Conferma">
     </form>
 </div>
-
+<br>
 <div *ngIf="isInserisciLibro" class="modal">
     <h4>Nuovo libro</h4>
     <button (click)="toggleInserisciLibro()">CHIUDI</button>
@@ -65,11 +67,13 @@
         <label for="ImgSource">Link immagine: </label>
         <input type="text" name="ImgSource" formControlName="ImgSource">
         <br>
+
+        <input type="submit" value="Conferma">
     </form>
 </div>
-
+<br>
 <button (click)="toggleInserisciLibro()" *ngIf="!isInserisciLibro">Inserisci un nuovo libro</button>
-
+<br>
 <div>
     <!--DA AGGIUNGERE-->
     <!--<app-ricercalibro>(search)="searchCallback($event)"</app-ricercalibro>-->
