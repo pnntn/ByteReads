@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import com.generation.origanboh_spring.dto.LoginStatus;
+import com.generation.origanboh_spring.entities.Admin;
 import com.generation.origanboh_spring.entities.Cliente;
 import com.generation.origanboh_spring.entities.Libro;
 
@@ -71,5 +72,24 @@ public class EntitiesContext {
         return ls;
     }
 
-    
+    @Bean
+    @Scope("prototype")
+    public Admin newAdmin(Map<String, String> params){
+        int id = -1;
+        if(params.containsKey("id")){
+            id = Integer.parseInt(params.get("id"));
+        }
+        String nome = params.get("nome");
+        String cognome = params.get("cognome");
+        String username = params.get("username");
+        String password = params.get("password");
+
+        Admin a = new Admin();
+        a.setId(id);
+        a.setNome(nome);
+        a.setCognome(cognome);
+        a.setUsername(username);
+        a.setPassword(password);
+    return a;
+    }
 }

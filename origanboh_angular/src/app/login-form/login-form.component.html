@@ -26,19 +26,31 @@
   >
 
   <!-- Modal Content -->
-  <form [formGroup]="loginForm" (ngSubmit)="submitForm()" class="modal-content animate" action="/action_page.php">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="submitForm()"
+    class="modal-content animate"
+    action="/action_page.php"
+  >
     <div class="container">
       <div class="form-input">
         <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required />
+        <input
+          type="text"
+          placeholder="Enter Username"
+          name="username"
+          required
+          formControlName="username"
+        />
       </div>
       <div class="form-input">
         <label for="psw"><b>Password</b></label>
         <input
           type="password"
           placeholder="Enter Password"
-          name="psw"
+          name="password"
           required
+          formControlName="password"
         />
       </div>
 
