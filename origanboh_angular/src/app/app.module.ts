@@ -13,6 +13,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomerareaComponent } from './customerarea/customerarea.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     BookdetailComponent,
     CartComponent,
     LoginFormComponent,
+    CustomerareaComponent,
   ],
   imports: [
     BrowserModule,
