@@ -1,5 +1,6 @@
 header {
-  border: 1px solid red;
+  background-color: #16c172;
+  color: white;
   display: flex;
   justify-content: space-between;
   padding: 10px;
