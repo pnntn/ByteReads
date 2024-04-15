@@ -8,10 +8,11 @@ const routes: Routes = [
     path: 'dettaglio',
     component: BookdetailComponent,
   },
+  { path: 'area-admin', component: BookdetailComponent },
   {
-    path: 'areacliente',
-    component: CustomerareaComponent
-  }
+    path: 'area-cliente',
+    component: CustomerareaComponent,
+  },
 ];
 
 @NgModule({

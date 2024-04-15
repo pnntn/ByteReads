@@ -31,12 +31,13 @@ public class LoginRestController {
 
     @PostMapping("/signin")
     public LoginStatus signin(@RequestBody Map<String, String> params){
+        System.out.println(params);
     
         Utente u = userDAO.readFromUsernameAndPassword(params.get("username"), params.get("password"));
         LoginStatus ls;
-    
+        
         ls = context.getBean(LoginStatus.class, "NONE", 0);
-
+        
         if(u instanceof Cliente){
             ls = context.getBean(LoginStatus.class, "CLIENTE", u.getId());
             return ls; 
