@@ -1,7 +1,12 @@
-<div>
-  <div>{{ libro?.nomeProdotto }}</div>
+<div class="book">
+  <img
+    class="book_cover"
+    src="https://covers.openlibrary.org/b/id/12547191-L.jpg"
+    alt="{{ libro?.nomeProdotto }}"
+  />
+  <div class="book_title">{{ libro?.nomeProdotto }}</div>
   <div>{{ libro?.autore }}</div>
-  <div>{{ libro?.genere }}</div>
-  <div>{{ libro?.prezzo }}</div>
+
+  <div class="book_price">{{ libro?.prezzo }} €</div>
   <br />
 </div>

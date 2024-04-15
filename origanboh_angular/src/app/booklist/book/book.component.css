@@ -1,0 +1,19 @@
+.book {
+  width: 200px;
+  height: 400px;
+  cursor: pointer;
+}
+
+.book_cover {
+  height: 300px;
+}
+
+.book_title {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.book:hover {
+  -webkit-box-shadow: 1px 5px 6px 0px #000000;
+  box-shadow: 1px 5px 6px 0px #000000;
+}

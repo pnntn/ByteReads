@@ -1,10 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&display=swap");
 body {
   margin: 0;
   /* height: 100vh; */
+  background-color: #d3f6db;
 }
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  font-family: "roboto", sans-serif;
+  font-family: "Sedan", serif;
+  font-weight: 400;
+  font-style: normal;
 }
