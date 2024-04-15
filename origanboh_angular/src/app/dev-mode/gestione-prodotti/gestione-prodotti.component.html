@@ -84,12 +84,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let libro of libri">
-                <td>{{libro.id}}</td>
-                <td>{{libro.nomeProdotto}}</td>
-                <td>{{libro.autore}}</td>
-                <td>{{libro.genere}}</td>
-                <td>{{libro.prezzo}}</td>
-                <td>{{libro.stock}}</td>
+                <td>{{ libro.id }}</td>
+                <td>{{ libro.nomeProdotto }}</td>
+                <td>{{ libro.autore }}</td>
+                <td>{{ libro.genere }}</td>
+                <td>{{ libro.prezzo }}</td>
+                <td>{{ libro.stock }}</td>
                 <td><button (click)="deleteLibro(libro.id)">Elimina</button></td>
                 <td><button (click)="modificaLibro(libro)">Modifica</button></td>
             </tr>

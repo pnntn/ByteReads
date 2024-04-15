@@ -44,6 +44,22 @@ export class GestioneProdottiComponent {
         ImgSource : ""
       }
     )
+
+    this.getAllLibri();
+  }
+
+  getAllLibri() {
+    let token = 'ADMIN-1';
+    //TODO- STO USANDO UN TOKEN TEMPORANEO SOLO PER FARLO PARTIRE INTANTO
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      token: token,
+    });
+    this.http
+      .get<Libro[]>('http://localhost:8080/api/libro/all', { headers })
+      .subscribe((risposta) => {
+        this.libri = risposta;
+      });
   }
 
   deleteLibro(id : number){

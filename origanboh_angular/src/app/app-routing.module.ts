@@ -13,7 +13,8 @@ const routes: Routes = [
   },
   { 
     path: 'area-admin', 
-    component: DevModeComponent },
+    component: DevModeComponent 
+  },
   {
     path: 'gestione-prodotti',
     component : GestioneProdottiComponent

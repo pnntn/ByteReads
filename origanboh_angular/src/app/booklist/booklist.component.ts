@@ -12,10 +12,10 @@ export class BooklistComponent {
 
   constructor(private http: HttpClient) {
     this.http = http;
-    this.getAllClassi();
+    this.getAllLibri();
   }
 
-  getAllClassi() {
+  getAllLibri() {
     let token = 'ADMIN-1';
     //TODO- STO USANDO UN TOKEN TEMPORANEO SOLO PER FARLO PARTIRE INTANTO
     const headers = new HttpHeaders({
