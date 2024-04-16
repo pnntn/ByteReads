@@ -44,7 +44,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
 
     @Override
     public Libro readById(Integer idLibro) {
-        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where id=?";
+        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where p.id=?";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, idLibro+"");
         
         Libro l = null;

@@ -18,6 +18,7 @@ import { DevModeComponent } from './dev-mode/dev-mode.component';
 import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-utenti.component';
 import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
 import { RicercaLibroComponent } from './dev-mode/ricerca-libro/ricerca-libro.component';
+import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { RicercaLibroComponent } from './dev-mode/ricerca-libro/ricerca-libro.co
     GestioneUtentiComponent,
     GestioneProdottiComponent,
     RicercaLibroComponent,
+    DettaglioComponent,
+    
   ],
   imports: [
     BrowserModule,

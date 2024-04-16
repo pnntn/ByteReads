@@ -5,6 +5,7 @@ import { CustomerareaComponent } from './customerarea/customerarea.component';
 import { DevModeComponent } from './dev-mode/dev-mode.component';
 import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-utenti.component';
 import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
+import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'area-cliente',
     component: CustomerareaComponent,
+  },
+  { 
+    path: 'byId', 
+    component: DettaglioComponent 
   },
 ];
 

@@ -1,12 +1,10 @@
-<div class="book">
+<button class="book" (click)="openBookDetail(libro)">
   <img
     class="book_cover"
-    src="https://covers.openlibrary.org/b/id/12547191-L.jpg"
-    alt="{{ libro?.nomeprodotto }}"
+    src=" https://covers.openlibrary.org/b/id/12547191-L.jpg"
   />
   <div class="book_title">{{ libro?.nomeprodotto }}</div>
   <div>{{ libro?.autore }}</div>
-
   <div class="book_price">{{ libro?.prezzo }} €</div>
   <br />
-</div>
+</button>
