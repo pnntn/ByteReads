@@ -1,5 +1,13 @@
 <div *ngIf="libro">
+    <img
+    class="book_cover"
+    src=" https://covers.openlibrary.org/b/id/12547191-L.jpg"
+    alt="{{ libro?.nomeprodotto }}"
+  />
     <h2>{{ libro.nomeprodotto }}</h2>
     <p>Autore: {{ libro.autore }}</p>
+    <p>Genere: {{ libro.genere }}</p>
     <p>Prezzo: {{ libro.prezzo }} €</p>
+    <p>Quantità: {{ libro.stock }}</p>
+    <p>Descrizione: {{ libro.descrizione }}</p>
   </div>
