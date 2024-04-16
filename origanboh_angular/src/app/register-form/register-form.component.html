@@ -1,0 +1,27 @@
+<div *ngIf="isInserisciCliente" class="modal">
+    <h4>Registrati</h4>
+    <form [formGroup]="formInserisciCliente" (ngSubmit)="submitInserisciCliente()">
+
+        <label for="username">Username: </label>
+        <input type="text" name="username" formControlName="username">
+        <br>
+
+        <label for="password">Password: </label>
+        <input type="password" name="password" formControlName="password">
+        <br>
+
+        <label for="nome">Nome: </label>
+        <input type="text" name="nome" formControlName="nome">
+        <br>
+
+        <label for="cognome">Cognome: </label>
+        <input type="text" name="cognome" formControlName="cognome">
+        <br>
+
+        <label for="indirizzo">Indirizzo: </label>
+        <input type="text" name="indirizzo" formControlName="indirizzo">
+        <br>
+
+        <input type="submit" value="Conferma">
+    </form>
+</div>
