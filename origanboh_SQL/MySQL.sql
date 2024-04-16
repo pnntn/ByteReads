@@ -24,7 +24,7 @@ CREATE TABLE clienti (
 CREATE TABLE prodotti (
     id int primary key auto_increment,
     nome_prodotto VARCHAR(50),
-    prezzo NUMBER,
+    prezzo DECIMAL(10,2),
     stock INT,
     descrizione VARCHAR(500), 
     img_source VARCHAR(100) 

@@ -78,15 +78,17 @@ public class DatabaseOracle implements Database{
             ps = getConnection().prepareStatement(query, cols);
 
             for(int i = 0; i < params.length; i++){
-                String[] split = params[i].split(":");
-                if(split[0].equals("DATA")){
-                    ps.setDate(i+1, Date.valueOf(split[1]));
-                }
-                else if(split[0].equals("DOUBLE")){
-                    ps.setDouble(i+1, Double.parseDouble(split[1]));
-                }
-                else{
-                    ps.setString(i+1, params[i]);
+                if (params[i] != null){
+                    String[] split = params[i].split(":");
+                    if(split[0].equals("DATA")){
+                        ps.setDate(i+1, Date.valueOf(split[1]));
+                    }
+                    else if(split[0].equals("DOUBLE")){
+                        ps.setDouble(i+1, Double.parseDouble(split[1]));
+                    }
+                    else{
+                        ps.setString(i+1, params[i]);
+                    }
                 }
             }
 
