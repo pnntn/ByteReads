@@ -44,7 +44,6 @@ export class GestioneProdottiComponent {
         ImgSource : ""
       }
     )
-
     this.getAllLibri();
   }
 
@@ -186,4 +185,5 @@ export class GestioneProdottiComponent {
   searchCallback(libri : Libro[]){
     this.libri = libri;
   }
+
 }

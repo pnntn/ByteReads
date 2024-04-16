@@ -22,7 +22,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
     @Override
     public Integer create(Libro e) {
         String query = "insert into prodotti(nome_prodotto, prezzo, stock, descrizione, img_source) values (?, ?, ?, ?, ?)";
-        int id = database.eseguiDML(query, e.getNomeProdotto(), e.getPrezzo()+"", e.getStock()+"", e.getDescrizione(), e.getImgSource());
+        int id = database.eseguiDML(query, e.getNomeProdotto(), "DOUBLE:"+e.getPrezzo(), e.getStock()+"", e.getDescrizione(), e.getImgSource());
 
         query = "insert into libri(id, autore, genere) values(?, ?, ?)";
         database.eseguiDML(query, id+"", e.getAutore(), e.getGenere());
@@ -69,7 +69,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
     @Override
     public void update(Libro e) {
         String query = "update prodotti set nome_prodotto=?, prezzo=?, stock=?, descrizione=?, img_source=? where id=?";
-        database.eseguiDML(query, e.getNomeProdotto(), e.getPrezzo()+"", e.getStock()+"", e.getDescrizione(), e.getImgSource(), e.getId()+"");
+        database.eseguiDML(query, e.getNomeProdotto(), "DOUBLE:"+e.getPrezzo(), e.getStock()+"", e.getDescrizione(), e.getImgSource(), e.getId()+"");
         query = "update libri set autore=?, genere=? where id=?";
         database.eseguiDML(query, e.getAutore(), e.getGenere(), e.getId()+"");
     }
