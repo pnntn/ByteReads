@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Libro } from 'src/models/Libro';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book',
@@ -8,4 +9,12 @@ import { Libro } from 'src/models/Libro';
 })
 export class BookComponent {
   @Input() libro?: Libro;
+
+  constructor(private router: Router) {}
+
+  openBookDetail(libro?: Libro) {
+    if (libro) {
+      this.router.navigate(['byId'], { queryParams: { idLibro: libro.id } });
+    }
+  }
 }
