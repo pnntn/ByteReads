@@ -1,0 +1,3 @@
+<label for="nomeprodotto">Cerca per nome</label>
+<input (change)="getLibriByName()" type="text" name="nomeprodotto" [(ngModel)]="ricercaNome">
+<button (click)="getLibriByName()">Cerca</button><button (click)="reset()">X</button>

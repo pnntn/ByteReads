@@ -106,14 +106,14 @@ public class LibroRestController {
  
  
      @GetMapping("/searchByName")
-     public List<Libro> searchByName(@RequestParam(name = "nome", defaultValue = "") String nome, @RequestHeader("token") String token){
+     public List<Libro> searchByName(@RequestParam(name = "nomeprodotto", defaultValue = "") String nomeprodotto, @RequestHeader("token") String token){
          String ruolo = token.split("-")[0];
          int idUtente = Integer.parseInt(token.split("-")[1]);
          if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
              return new ArrayList<>();
          }
          else{
-             return libroService.findByName(nome);
+             return libroService.findByName(nomeprodotto);
          }
      }
 

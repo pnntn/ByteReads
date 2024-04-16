@@ -35,8 +35,8 @@ public class LibroService extends GenericService<Integer, Libro, LibroDAO>{
         return l;
     }
 
-    public List<Libro> findByName(String nome){
-        Map<Integer, Entity> result = getDao().readByName(nome);
+    public List<Libro> findByName(String nomeprodotto){
+        Map<Integer, Entity> result = getDao().readByName(nomeprodotto);
         List<Libro> lista = new ArrayList<>();
         for(Entity e : result.values()){
             if(e instanceof Libro){

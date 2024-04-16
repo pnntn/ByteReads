@@ -77,9 +77,10 @@
 <br>
 
 <div>
-    <!--DA AGGIUNGERE-->
-    <!--<app-ricercalibro>(search)="searchCallback($event)"</app-ricercalibro>-->
-    <table>
+    <app-ricerca-libro (search)="searchCallback($event)"></app-ricerca-libro>
+</div>
+
+<table>
         <thead>
             <th>Id</th>
             <th>Titolo</th>
@@ -104,5 +105,4 @@
                 <td><button (click)="modificaLibro(libro)">Modifica</button></td>
             </tr>
         </tbody>
-    </table> 
-</div>
+</table> 
