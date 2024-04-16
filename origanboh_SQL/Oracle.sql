@@ -47,6 +47,9 @@ CREATE TABLE prodotti_clienti (
 INSERT INTO utenti (nome, cognome, username, password) VALUES ('Mario', 'Rossi', 'admin', 'password');
 INSERT INTO admin (id) values (1);
 
+-- INSERIMENTO UTENTE PROVA
+INSERT INTO utenti (nome, cognome, username, password) VALUES ('Fabio', 'Verdi', 'fabio', 'verdi');
+INSERT INTO clienti (id, indirizzo) VALUES (2, 'Via Roma 1, Torino');
 
 
 -- INSERIMENTO PRODOTTI

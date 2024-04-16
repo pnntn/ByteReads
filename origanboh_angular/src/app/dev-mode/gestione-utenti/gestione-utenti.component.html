@@ -1,1 +1,20 @@
-<p>gestione-utenti works!</p>
+<div>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Indirizzo</th>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let cliente of clienti">
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.cognome }}</td>
+                <td>{{ cliente.indirizzo }}</td>
+                <td><button (click)="deleteCliente(cliente.id)">Elimina</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
