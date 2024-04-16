@@ -29,8 +29,9 @@ public class LibroService extends GenericService<Integer, Libro, LibroDAO>{
         Libro l = constructEntity(params);
         int ris = getDao().create(l);
         l.setId(ris);
-        libroDAO.create(l);
-    
+
+        // Commentato perchè causava una doppia insert
+        // libroDAO.create(l);
         return l;
     }
 
