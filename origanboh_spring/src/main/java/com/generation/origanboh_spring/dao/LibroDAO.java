@@ -21,8 +21,8 @@ public class LibroDAO implements IDAO<Integer, Libro>{
 
     @Override
     public Integer create(Libro e) {
-        String query = "insert into prodotti(nome_prodotto, prezzo, stock, descrizione, img_source) values (?, ?, ?, ?, ?)";
-        int id = database.eseguiDML(query, e.getNomeProdotto(), "DOUBLE:"+e.getPrezzo(), e.getStock()+"", e.getDescrizione(), e.getImgSource());
+        String query = "insert into prodotti(nomeprodotto, prezzo, stock, descrizione, imgsource) values (?, ?, ?, ?, ?)";
+        int id = database.eseguiDML(query, e.getNomeprodotto(), "DOUBLE:"+e.getPrezzo(), e.getStock()+"", e.getDescrizione(), e.getImgsource());
 
         query = "insert into libri(id, autore, genere) values(?, ?, ?)";
         database.eseguiDML(query, id+"", e.getAutore(), e.getGenere());
@@ -55,7 +55,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
     }
 
     public Map<Integer, Entity> readByName(String nome){
-        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where p.nome_prodotto like(concat(concat('%', ?), '%'))";
+        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where p.nomeprodotto like(concat(concat('%', ?), '%'))";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, nome);
         Map<Integer, Entity> ris = new HashMap<>();
 
@@ -68,8 +68,8 @@ public class LibroDAO implements IDAO<Integer, Libro>{
 
     @Override
     public void update(Libro e) {
-        String query = "update prodotti set nome_prodotto=?, prezzo=?, stock=?, descrizione=?, img_source=? where id=?";
-        database.eseguiDML(query, e.getNomeProdotto(), "DOUBLE:"+e.getPrezzo(), e.getStock()+"", e.getDescrizione(), e.getImgSource(), e.getId()+"");
+        String query = "update prodotti set nomeprodotto=?, prezzo=?, stock=?, descrizione=?, imgsource=? where id=?";
+        database.eseguiDML(query, e.getNomeprodotto(), "DOUBLE:"+e.getPrezzo(), e.getStock()+"", e.getDescrizione(), e.getImgsource(), e.getId()+"");
         query = "update libri set autore=?, genere=? where id=?";
         database.eseguiDML(query, e.getAutore(), e.getGenere(), e.getId()+"");
     }

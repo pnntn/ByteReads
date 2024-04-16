@@ -22,26 +22,26 @@ export class GestioneProdottiComponent {
 
     this.formInserisciLibro = formBuilder.group(
       {
-        nomeProdotto : "", //ovvero titolo
+        nomeprodotto : "", //ovvero titolo
         autore : "",
         genere : "",
         prezzo : "",
         stock : "",
         descrizione : "",
-        ImgSource : ""
+        imgsource : ""
       }
     )
 
     this.formModificaLibro = formBuilder.group(
       {
         id : "",
-        nomeProdotto : "", //ovvero titolo
+        nomeprodotto : "", //ovvero titolo
         autore : "",
         genere : "",
         prezzo : "",
         stock : "",
         descrizione : "",
-        ImgSource : ""
+        imgsource : ""
       }
     )
     this.getAllLibri();
@@ -100,13 +100,13 @@ export class GestioneProdottiComponent {
     this.formModificaLibro.patchValue(
       {
         id : libro.id,
-        nomeProdotto : libro.nomeProdotto,
+        nomeprodotto : libro.nomeprodotto,
         autore : libro.autore,
         genere : libro.genere,
         prezzo : libro.prezzo,
         stock : libro.stock,
         descrizione : libro.descrizione,
-        ImgSource : libro.ImgSource
+        imgsource : libro.imgsource
       }
     );
 
@@ -168,13 +168,13 @@ export class GestioneProdottiComponent {
 
       this.formInserisciLibro.patchValue(
         {
-          nomeProdotto : "", //ovvero titolo
+          nomeprodotto : "", //ovvero titolo
           autore : "",
           genere : "",
           prezzo : "",
           stock : "",
           descrizione : "",
-          ImgSource : ""
+          imgsource : ""
         }
       )
 

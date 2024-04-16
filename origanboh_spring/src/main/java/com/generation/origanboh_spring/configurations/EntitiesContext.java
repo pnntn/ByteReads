@@ -65,21 +65,21 @@ public class EntitiesContext {
         if(params.containsKey("id")){
             id = Integer.parseInt(params.get("id"));
         }
-        String nomeProdotto = params.get("nomeprodotto");
+        String nomeprodotto = params.get("nomeprodotto");
         double prezzo = Double.parseDouble(params.get("prezzo"));
         int stock = Integer.parseInt(params.get("stock"));
         String descrizione = params.get("descrizione");
-        String imgSource = params.get("imgsource");
+        String imgsource = params.get("imgsource");
         String autore = params.get("autore");
         String genere = params.get("genere");
 
         Libro l = new Libro();
         l.setId(id);
-        l.setNomeProdotto(nomeProdotto);
+        l.setNomeprodotto(nomeprodotto);
         l.setPrezzo(prezzo);
         l.setStock(stock);
         l.setDescrizione(descrizione);
-        l.setImgSource(imgSource);
+        l.setImgsource(imgsource);
         l.setAutore(autore);
         l.setGenere(genere);
         return l;

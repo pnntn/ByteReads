@@ -23,11 +23,11 @@ CREATE TABLE clienti (
 
 CREATE TABLE prodotti (
     id int primary key auto_increment,
-    nome_prodotto VARCHAR(50),
+    nomeprodotto VARCHAR(50),
     prezzo DECIMAL(10,2),
     stock INT,
     descrizione VARCHAR(500), 
-    img_source VARCHAR(100) 
+    imgsource VARCHAR(100) 
 );
 
 CREATE TABLE libri (
@@ -55,26 +55,26 @@ INSERT INTO admin (id) values (1);
 
 -- INSERIMENTO PRODOTTI
 
-INSERT INTO prodotti (nome_prodotto, prezzo, stock, descrizione, img_source)
+INSERT INTO prodotti (nomeprodotto, prezzo, stock, descrizione, imgsource)
 VALUES ('Il signore degli anelli', 25.99, 50, 'Fantasy epico di J.R.R. Tolkien', 'img/lotr.jpg');
 
-INSERT INTO prodotti (nome_prodotto, prezzo, stock, descrizione, img_source)
+INSERT INTO prodotti (nomeprodotto, prezzo, stock, descrizione, imgsource)
 VALUES ('Harry Potter e la Pietra Filosofale', 20.99, 70, 'Romanzo fantasy di J.K. Rowling', 'img/harry_potter.jpg');
 
-INSERT INTO prodotti (nome_prodotto, prezzo, stock, descrizione, img_source)
+INSERT INTO prodotti (nomeprodotto, prezzo, stock, descrizione, imgsource)
 VALUES ('Cronache del ghiaccio e del fuoco', 29.99, 45, 'Saga fantasy di George R.R. Martin', 'img/got.jpg');
 
 -- Inserimento dati nella tabella prodotti
-INSERT INTO prodotti (nome_prodotto, prezzo, stock, descrizione, img_source)
+INSERT INTO prodotti (nomeprodotto, prezzo, stock, descrizione, imgsource)
 VALUES ('Il nome della rosa', 18.50, 30, 'Romanzo storico di Umberto Eco', 'img/nome_della_rosa.jpg');
 
-INSERT INTO prodotti (nome_prodotto, prezzo, stock, descrizione, img_source)
+INSERT INTO prodotti (nomeprodotto, prezzo, stock, descrizione, imgsource)
 VALUES ('1984', 15.99, 25, 'Romanzo distopico di George Orwell', 'img/1984.jpg');
 
-INSERT INTO prodotti (nome_prodotto, prezzo, stock, descrizione, img_source)
+INSERT INTO prodotti (nomeprodotto, prezzo, stock, descrizione, imgsource)
 VALUES ('Il giovane Holden', 12.75, 40, 'Romanzo di J.D. Salinger', 'img/il_giovane_holden.jpg');
 
-INSERT INTO prodotti (nome_prodotto, prezzo, stock, descrizione, img_source)
+INSERT INTO prodotti (nomeprodotto, prezzo, stock, descrizione, imgsource)
 VALUES ('Cime tempestose', 14.99, 20, 'Romanzo romantico di Emily Brontë', 'img/cime_tempestose.jpg');
 
 
