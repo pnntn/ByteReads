@@ -6,6 +6,7 @@
 
     <app-login-form *ngIf="!isLoggedIn()"></app-login-form>
     <app-register-form *ngIf="!isLoggedIn()"></app-register-form>
+    <button *ngIf="isLoggedIn()" (click)="logout()">LOGOUT</button>
 
     <li *ngIf="isClient()" class="nav-item">
       <a class="nav-link" routerLink="/area-cliente"

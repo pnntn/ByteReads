@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  logout() {
-    sessionStorage.clear();
-    console.log('Logged out');
-  }
+  constructor(private router: Router) {}
+
 }
