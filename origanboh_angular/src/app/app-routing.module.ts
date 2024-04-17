@@ -5,19 +5,20 @@ import { CustomerareaComponent } from './customerarea/customerarea.component';
 import { DevModeComponent } from './dev-mode/dev-mode.component';
 import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-utenti.component';
 import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
     path: 'dettaglio',
     component: BookdetailComponent,
   },
-  { 
-    path: 'area-admin', 
-    component: DevModeComponent 
+  {
+    path: 'area-admin',
+    component: DevModeComponent,
   },
   {
     path: 'gestione-prodotti',
-    component : GestioneProdottiComponent
+    component: GestioneProdottiComponent,
   },
   {
     path: 'gestione-utenti',
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'area-cliente',
     component: CustomerareaComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
 ];
 

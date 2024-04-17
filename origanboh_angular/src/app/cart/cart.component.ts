@@ -3,6 +3,7 @@ import { Libro } from 'src/models/Libro';
 import { CarrelloItem } from 'src/models/CarrelloItem';
 import { Subscription } from 'rxjs';
 import { CarrelloService } from '../services/carrello.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,10 @@ export class CartComponent implements OnInit, OnDestroy {
   carrello: CarrelloItem[] = [];
   carrelloSubscription!: Subscription;
 
-  constructor(private carrelloService: CarrelloService) {
+  constructor(
+    private carrelloService: CarrelloService,
+    private router: Router
+  ) {
     // Creazione di un libro di prova
     const libroDiProva: Libro = {
       id: 1,
@@ -66,6 +70,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   vaiAlCheckout() {
-    console.log('reindirizza al checkout');
+    this.router.navigate(['/checkout']);
+    this.active = !this.active;
   }
 }
