@@ -1,1 +1,25 @@
-<p>cart works!</p>
+<button (click)="apriCarrello()" class="carrello-toggle">🛒</button>
+<div class="carrello" [ngClass]="active ? 'aperto' : ''">
+  <div *ngFor="let l of carrello" class="libro_carrello">
+    <h3>{{ l.libro.nomeprodotto }}</h3>
+    <p>Prezzo: {{ l.libro.prezzo }}€</p>
+    <p>
+      Quantità:
+      <button (click)="decrementaQuantita(l)" [disabled]="l.quantita === 1">
+        -
+      </button>
+      {{ l.quantita }}
+      <button (click)="incrementaQuantita(l)">+</button>
+    </p>
+    <button (click)="rimuoviDalCarrello(l)" class="btn-rimuovi">X</button>
+  </div>
+  <div *ngIf="carrello.length > 0" class="riepilogo">
+    <p>Totale: {{ calcolaTotale() }}€</p>
+    <button (click)="vaiAlCheckout()" class="btn-checkout">
+      Vai al checkout
+    </button>
+  </div>
+  <p *ngIf="carrello.length === 0" class="carrello-empty">
+    Il carrello è vuoto
+  </p>
+</div>
