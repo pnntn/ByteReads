@@ -55,7 +55,7 @@ public class LibroDAO implements IDAO<Integer, Libro>{
     }
 
     public Map<Integer, Entity> readByName(String nome){
-        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where p.nomeprodotto like(concat(concat('%', ?), '%'))";
+        String query = "select p.*, l.autore, l.genere from prodotti p join libri l on p.id = l.id where UPPER(p.nomeprodotto) like(concat(concat('%', UPPER(?)), '%'))";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, nome);
         Map<Integer, Entity> ris = new HashMap<>();
 

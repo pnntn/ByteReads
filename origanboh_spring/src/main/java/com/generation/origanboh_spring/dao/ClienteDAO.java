@@ -56,7 +56,7 @@ public class ClienteDAO implements IDAO<Integer, Cliente>{
     }
 
     public Map<Integer, Entity> readByLastName(String nome){
-        String query = "select u.*, c.indirizzo from utenti u join clienti c on u.id = c.id where u.cognome like(concat(concat('%', ?), '%'))";
+        String query = "select u.*, c.indirizzo from utenti u join clienti c on u.id = c.id where UPPER(u.cognome) like(concat(concat('%', UPPER(?)), '%'))";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, nome);
         Map<Integer, Entity> ris = new HashMap<>();
 
