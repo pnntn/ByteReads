@@ -74,9 +74,4 @@ export class CustomerareaComponent {
 
   }
 
-  logout(){
-    sessionStorage.clear();
-    window.location.href="/";
-  }
-
 }
