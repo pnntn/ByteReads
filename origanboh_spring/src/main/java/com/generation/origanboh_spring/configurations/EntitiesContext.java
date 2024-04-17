@@ -1,5 +1,6 @@
 package com.generation.origanboh_spring.configurations;
 
+import java.sql.Date;
 import java.util.Map;
 
 import org.springframework.context.annotation.Bean;
@@ -7,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import com.generation.origanboh_spring.dto.LoginStatus;
+import com.generation.origanboh_spring.entities.Acquisto;
 import com.generation.origanboh_spring.entities.Admin;
 import com.generation.origanboh_spring.entities.Cliente;
 import com.generation.origanboh_spring.entities.Libro;
@@ -91,6 +93,27 @@ public class EntitiesContext {
         LoginStatus ls = new LoginStatus();
         ls.setToken(ruolo, idUtente);
         return ls;
+    }
+
+    @Bean
+    @Scope("prototype")
+    public Acquisto newAcquisto(Map<String, String> params){
+        int id = -1;
+        if(params.containsKey("id")){
+            id = Integer.parseInt(params.get("id"));
+        }
+        int idCliente = Integer.parseInt(params.get("idCliente"));
+        int idProdotto = Integer.parseInt(params.get("idProdotto"));
+        String dataacquisto = params.get("dataacquisto");
+        int quantita = Integer.parseInt(params.get("quantita"));
+
+        Acquisto a = new Acquisto();
+        a.setId(id);
+        a.setIdCliente(idCliente);
+        a.setIdProdotto(idProdotto);
+        a.setDataacquisto(dataacquisto);
+        a.setQuantita(quantita);
+    return a;
     }
 
 }

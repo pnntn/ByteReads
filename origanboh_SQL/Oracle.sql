@@ -19,7 +19,7 @@ CREATE TABLE clienti (
 
 CREATE TABLE prodotti (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    nomeprodotto VARCHAR(50),
+    nomeprodotto VARCHAR(80),
     prezzo NUMBER,
     stock INT,
     descrizione VARCHAR(500), 
@@ -34,8 +34,11 @@ CREATE TABLE libri (
 );
 
 CREATE TABLE prodotti_clienti (
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     id_cliente INT,
     id_prodotto INT,
+    dataacquisto VARCHAR(50),
+    quantita INT,
     FOREIGN KEY (id_cliente) REFERENCES clienti(id) ON DELETE CASCADE,
     FOREIGN KEY (id_prodotto) REFERENCES prodotti(id) ON DELETE CASCADE
 );
@@ -283,7 +286,11 @@ VALUES (36, 'C.S. Lewis', 'Fantasy');
 INSERT INTO libri (id, autore, genere)
 VALUES (37, 'Italo Calvino', 'Romanzo');
 
+--Insert di prova di un acquisto
+INSERT INTO prodotti_clienti (id_cliente, id_prodotto, dataacquisto, quantita) 
+VALUES (2, 1, DATE '2024-04-20', 2);
 
+--/////////////////////////////////////////
 
 -- DROP TABELLE
 
@@ -293,3 +300,16 @@ drop table clienti;
 drop table prodotti;
 drop table libri;
 drop table prodotti_clienti;
+
+-- SELECT TABELLE
+
+SELECT *
+FROM prodotti p
+LEFT JOIN libri l ON p.id = l.id;
+
+SELECT *
+FROM utenti u
+LEFT JOIN clienti c ON u.id = c.id;
+
+SELECT *
+FROM prodotti_clienti;

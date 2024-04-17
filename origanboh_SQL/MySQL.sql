@@ -23,7 +23,7 @@ CREATE TABLE clienti (
 
 CREATE TABLE prodotti (
     id int primary key auto_increment,
-    nomeprodotto VARCHAR(50),
+    nomeprodotto VARCHAR(80),
     prezzo DECIMAL(10,2),
     stock INT,
     descrizione VARCHAR(500), 
