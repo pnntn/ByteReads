@@ -27,11 +27,11 @@ public class ClienteProdottoDAO implements IDAO<Integer, Acquisto> {
         return id;
     }
 
-    @Override
-    public Map<Integer, Entity> read() {
-        String query = "SELECT * FROM prodotti_clienti";
-        Map<Integer, Map<String, String>> result = database.eseguiDQL(query);
-        Map<Integer, Entity> ris = new HashMap<>();
+    
+    public Map<Integer, Acquisto> readByIdCliente(Integer idCliente) {
+        String query = "SELECT * FROM prodotti_clienti WHERE id_cliente = ?";
+        Map<Integer, Map<String, String>> result = database.eseguiDQL(query, idCliente+"");
+        Map<Integer, Acquisto> ris = new HashMap<>();
 
         for(Map<String, String> params : result.values()){
             Acquisto a = context.getBean(Acquisto.class, params);
@@ -56,5 +56,11 @@ public class ClienteProdottoDAO implements IDAO<Integer, Acquisto> {
     public void delete(Integer id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public Map<Integer, Entity> read() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'read'");
     }
 }

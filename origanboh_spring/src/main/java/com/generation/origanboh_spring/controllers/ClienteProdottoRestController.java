@@ -24,9 +24,9 @@ public class ClienteProdottoRestController {
     
     private final ClienteProdottoService clienteProdottoService;
 
-    // http://localhost:8080/api/clienteprodotto/byId?idCliente=[VALORE]
-    @GetMapping("/byId")
-    public Acquisto getById(@RequestParam(name = "IdCliente", defaultValue = "0") int id, @RequestHeader("token") String token){
+    // http://localhost:8080/api/clienteprodotto/byIdCliente?idCliente=[VALORE]
+    @GetMapping("/byIdCliente")
+    public Map<Integer, Acquisto> getByIdCliente(@RequestParam(name = "idCliente", defaultValue = "0") int id, @RequestHeader("token") String token){
         System.out.println("ID cercato: " + id);
         String ruolo = token.split("-")[0];
         int idUtente = Integer.parseInt(token.split("-")[1]);
@@ -39,7 +39,7 @@ public class ClienteProdottoRestController {
             return null;
         }
         else{
-            return clienteProdottoService.findById(id);
+            return clienteProdottoService.findByIdCliente(id);
         }
     }
 

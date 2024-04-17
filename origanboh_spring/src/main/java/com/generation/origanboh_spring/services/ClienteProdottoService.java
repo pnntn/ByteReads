@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.generation.origanboh_spring.dao.ClienteProdottoDAO;
 import com.generation.origanboh_spring.entities.Acquisto;
+import com.generation.origanboh_spring.entities.Entity;
 
 @Service
 public class ClienteProdottoService extends GenericService<Integer, Acquisto, ClienteProdottoDAO> {
@@ -27,5 +28,11 @@ public class ClienteProdottoService extends GenericService<Integer, Acquisto, Cl
         
         return a;
     }
+
+    public Map<Integer, Acquisto> findByIdCliente(Integer idCliente){
+        Map<Integer, Acquisto> a = getDao().readByIdCliente(idCliente);
+        return a;
+    }
+
     
 }
