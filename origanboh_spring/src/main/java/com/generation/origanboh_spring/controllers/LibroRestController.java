@@ -43,7 +43,7 @@ public class LibroRestController {
         }
     }
     
-     // http://localhost:8080/api/studente/byId?idLibro=[VALORE]
+     // http://localhost:8080/api/libro/byId?idLibro=[VALORE]
      @GetMapping("/byId")
      public Libro getById(@RequestParam(name = "idLibro", defaultValue = "0") int id, @RequestHeader("token") String token){
          System.out.println("ID cercato: " + id);
@@ -107,14 +107,7 @@ public class LibroRestController {
  
      @GetMapping("/searchByName")
      public List<Libro> searchByName(@RequestParam(name = "nomeprodotto", defaultValue = "") String nomeprodotto, @RequestHeader("token") String token){
-         String ruolo = token.split("-")[0];
-         int idUtente = Integer.parseInt(token.split("-")[1]);
-         if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
-             return new ArrayList<>();
-         }
-         else{
-             return libroService.findByName(nomeprodotto);
-         }
+        return libroService.findByName(nomeprodotto);
      }
 
 }
