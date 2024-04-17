@@ -1,4 +1,7 @@
 <app-cart></app-cart>
+<div>
+  <app-ricerca-libro (search)="searchCallback($event)"></app-ricerca-libro>
+</div>
 <div class="booklist">
   <div *ngFor="let libro of libri"><app-book [libro]="libro"></app-book></div>
 </div>

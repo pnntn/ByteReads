@@ -28,4 +28,9 @@ export class BooklistComponent {
         this.libri = risposta;
       });
   }
+
+  searchCallback(libri : Libro[]){
+    this.libri = libri;
+  }
+  
 }
