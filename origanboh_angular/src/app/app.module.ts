@@ -17,6 +17,7 @@ import { CustomerareaComponent } from './customerarea/customerarea.component';
 import { DevModeComponent } from './dev-mode/dev-mode.component';
 import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-utenti.component';
 import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 import { RicercaLibroComponent } from './dev-mode/ricerca-libro/ricerca-libro.component';
 import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
 import { RicercaClienteComponent } from './dev-mode/ricerca-cliente/ricerca-cliente.component';
@@ -37,6 +38,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     DevModeComponent,
     GestioneUtentiComponent,
     GestioneProdottiComponent,
+    RegisterFormComponent,
     RicercaLibroComponent,
     DettaglioComponent,
     RicercaClienteComponent,

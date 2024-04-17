@@ -1,0 +1,57 @@
+<button onclick="document.getElementById('id02').style.display='block'">
+    Registrati
+</button>
+
+<div id="id02" class="modal">
+    <span
+    onclick="document.getElementById('id02').style.display='none'"
+    class="close"
+    title="Close Modal"
+    >&times;</span>
+
+    <form
+        [formGroup]="formInserisciCliente"
+        (ngSubmit)="submitInserisciCliente()"
+        class="modal-content animate"
+        action="/action_page.php"
+    >
+
+        <div class="container">
+            <div class="form-input">
+                <label for="username">Username: </label>
+                <input type="text" name="username" formControlName="username">
+                <br><br>
+
+                <label for="password">Password: </label>
+                <input type="password" name="password" formControlName="password">
+                <br><br>
+
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" formControlName="nome">
+                <br><br>
+
+                <label for="cognome">Cognome: </label>
+                <input type="text" name="cognome" formControlName="cognome">
+                <br><br>
+
+                <label for="indirizzo">Indirizzo: </label>
+                <input type="text" name="indirizzo" formControlName="indirizzo">
+                <br><br>
+            </div>
+
+            <button class="form-btn" type="submit">Registrati</button>
+            <br>
+            <button
+                type="button"
+                onclick="document.getElementById('id02').style.display='none'"
+                class="cancelbtn, form-btn"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+        
+
+    </form>
+</div>

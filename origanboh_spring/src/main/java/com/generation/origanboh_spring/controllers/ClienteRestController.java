@@ -79,16 +79,8 @@ public class ClienteRestController {
 
     @PostMapping("/insert")
     public Cliente insert(@RequestBody Map<String, String> params, @RequestHeader("token") String token){
-        String ruolo = token.split("-")[0];
-        int idUtente = Integer.parseInt(token.split("-")[1]);
-        if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
-            return null;
-        }
-        else{
-            return clienteService.insert(params);
-        }
+        return clienteService.insert(params);
     }
-
 
     @PostMapping("/update")
     public boolean update(@RequestBody Map<String, String> params, @RequestHeader("token") String token){
