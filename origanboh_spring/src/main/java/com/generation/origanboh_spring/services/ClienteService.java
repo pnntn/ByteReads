@@ -36,8 +36,8 @@ public class ClienteService extends GenericService<Integer, Cliente, ClienteDAO>
         return c;
     }
 
-    public List<Cliente> findByName(String nome){
-        Map<Integer, Entity> result = getDao().readByName(nome);
+    public List<Cliente> findByLastName(String nome){
+        Map<Integer, Entity> result = getDao().readByLastName(nome);
         List<Cliente> lista = new ArrayList<>();
         for(Entity e : result.values()){
             if(e instanceof Cliente){

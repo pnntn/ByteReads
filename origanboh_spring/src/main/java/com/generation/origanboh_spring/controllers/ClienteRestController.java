@@ -103,15 +103,15 @@ public class ClienteRestController {
     }
 
 
-    @GetMapping("/searchByName")
-    public List<Cliente> searchByName(@RequestParam(name = "nome", defaultValue = "") String nome, @RequestHeader("token") String token){
+    @GetMapping("/searchByLastName")
+    public List<Cliente> searchByName(@RequestParam(name = "cognome", defaultValue = "") String nome, @RequestHeader("token") String token){
         String ruolo = token.split("-")[0];
         int idUtente = Integer.parseInt(token.split("-")[1]);
         if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
             return new ArrayList<>();
         }
         else{
-            return clienteService.findByName(nome);
+            return clienteService.findByLastName(nome);
         }
     }
 

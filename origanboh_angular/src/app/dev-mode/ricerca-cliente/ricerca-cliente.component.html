@@ -1,0 +1,3 @@
+<label for="cognome">Cerca per cognome</label>
+<input (change)="getClientiByLastName()" type="text" name="nomeprodotto" [(ngModel)]="ricercaCognome">
+<button (click)="getClientiByLastName()">Cerca</button><button (click)="reset()">X</button>

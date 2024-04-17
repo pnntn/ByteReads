@@ -19,6 +19,7 @@ import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-ute
 import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
 import { RicercaLibroComponent } from './dev-mode/ricerca-libro/ricerca-libro.component';
 import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
+import { RicercaClienteComponent } from './dev-mode/ricerca-cliente/ricerca-cliente.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.componen
     GestioneProdottiComponent,
     RicercaLibroComponent,
     DettaglioComponent,
+    RicercaClienteComponent,
     
   ],
   imports: [
