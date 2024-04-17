@@ -13,7 +13,7 @@ export class RegisterFormComponent {
 
   formInserisciCliente : FormGroup;
 
-  isInserisciCliente = false;
+  isInserisciCliente = true;
 
   constructor(private http : HttpClient, private formBuilder : FormBuilder){
     this.http = http;
