@@ -20,6 +20,7 @@ import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione
 import { RicercaLibroComponent } from './dev-mode/ricerca-libro/ricerca-libro.component';
 import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
 import { RicercaClienteComponent } from './dev-mode/ricerca-cliente/ricerca-cliente.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { RicercaClienteComponent } from './dev-mode/ricerca-cliente/ricerca-clie
     RicercaLibroComponent,
     DettaglioComponent,
     RicercaClienteComponent,
-    
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

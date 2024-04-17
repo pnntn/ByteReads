@@ -6,19 +6,20 @@ import { DevModeComponent } from './dev-mode/dev-mode.component';
 import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-utenti.component';
 import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
 import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
     path: 'dettaglio',
     component: BookdetailComponent,
   },
-  { 
-    path: 'area-admin', 
-    component: DevModeComponent 
+  {
+    path: 'area-admin',
+    component: DevModeComponent,
   },
   {
     path: 'gestione-prodotti',
-    component : GestioneProdottiComponent
+    component: GestioneProdottiComponent,
   },
   {
     path: 'gestione-utenti',
@@ -28,9 +29,13 @@ const routes: Routes = [
     path: 'area-cliente',
     component: CustomerareaComponent,
   },
-  { 
-    path: 'byId', 
-    component: DettaglioComponent 
+  {
+    path: 'byId',
+    component: DettaglioComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
 ];
 
