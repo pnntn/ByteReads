@@ -84,23 +84,35 @@ public class ClienteDAO implements IDAO<Integer, Cliente>{
 
     //Controllo username esistente
     public boolean checkExistingUsername(String username) {
-        String query = "SELECT * FROM utenti join clienti on utenti.id = clienti.id WHERE utenti.username=?";
+        String query = "SELECT * FROM utenti JOIN clienti ON utenti.id = clienti.id WHERE LOWER(utenti.username) = LOWER(?)";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, username);
         Map<String, Cliente> ris = new HashMap<>();
-
-        for(Map<String, String> params : result.values()){
+    
+        for (Map<String, String> params : result.values()) {
             Cliente c = context.getBean(Cliente.class, params);
-          
             ris.put(params.get("username"), c);
         }
-
-        if(ris.containsKey(username)){
-            return true;
-        }
-        else{
-            return false;
-        }
-
+    
+        return ris.containsKey(username.toLowerCase());
     }
+    // public boolean checkExistingUsername(String username) {
+    //     String query = "SELECT * FROM utenti join clienti on utenti.id = clienti.id WHERE utenti.username=?";
+    //     Map<Integer, Map<String, String>> result = database.eseguiDQL(query, username);
+    //     Map<String, Cliente> ris = new HashMap<>();
+
+    //     for(Map<String, String> params : result.values()){
+    //         Cliente c = context.getBean(Cliente.class, params);
+          
+    //         ris.put(params.get("username"), c);
+    //     }
+
+    //     if(ris.containsKey(username)){
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+
+    // }
     
 }
