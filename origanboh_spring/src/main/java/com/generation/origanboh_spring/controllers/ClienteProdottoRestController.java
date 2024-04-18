@@ -48,7 +48,7 @@ public class ClienteProdottoRestController {
     public Acquisto insert(@RequestBody Map<String, String> params, @RequestHeader("token") String token){
         String ruolo = token.split("-")[0];
         int idUtente = Integer.parseInt(token.split("-")[1]);
-        if(!ruolo.equalsIgnoreCase("ADMIN") || idUtente == -1){
+        if(!ruolo.equalsIgnoreCase("CLIENTE") || idUtente == -1){
             return null;
         }
         else{
