@@ -6,11 +6,16 @@
 <div *ngIf="storicoAcquisti">
   <h2>Storico Acquisti</h2>
   <ul>
-    <li *ngFor="let key of keys(storicoAcquisti)">
-      <p>ID Acquisto: {{ key }}</p>
-      <p>ID Prodotto: {{ storicoAcquisti[key].idProdotto }}</p>
-      <p>Data Acquisto: {{ storicoAcquisti[key].dataacquisto }}</p>
-      <p>Quantità: {{ storicoAcquisti[key].quantita }}</p>
+    <li *ngFor="let acquisto of storicoAcquisti">
+      <img
+        src="{{ acquisto.imgSource }}"
+        alt="{{ acquisto.nomeprodotto }}"
+        width="100"
+      />
+      <p>{{ acquisto.nomeprodotto }}</p>
+      <p>Prezzo: {{ acquisto.prezzo }}€</p>
+      <p>Data Acquisto: {{ acquisto.dataacquisto }}</p>
+      <p>Quantità: {{ acquisto.quantita }}</p>
     </li>
   </ul>
 </div>

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Scope;
 
 import com.generation.origanboh_spring.dto.LoginStatus;
 import com.generation.origanboh_spring.entities.Acquisto;
+import com.generation.origanboh_spring.entities.AcquistoDettagliato;
 import com.generation.origanboh_spring.entities.Admin;
 import com.generation.origanboh_spring.entities.Cliente;
 import com.generation.origanboh_spring.entities.Libro;
@@ -128,5 +129,57 @@ public class EntitiesContext {
         a.setQuantita(quantita);
         return a;
     }
+
+    @Bean
+    @Scope("prototype")
+    public AcquistoDettagliato newAcquistoDettagliato(Map<String, String> params) {
+        int id = -1;
+        if (params.containsKey("id") && params.get("id") != null) {
+            id = Integer.parseInt(params.get("id"));
+        }
+    
+        int idCliente = -1;
+        if (params.containsKey("idCliente") && params.get("idCliente") != null) {
+            idCliente = Integer.parseInt(params.get("idCliente"));
+        }
+    
+        int idProdotto = -1;
+        if (params.containsKey("idProdotto") && params.get("idProdotto") != null) {
+            idProdotto = Integer.parseInt(params.get("idProdotto"));
+        }
+    
+        int quantita = -1;
+        if (params.containsKey("quantita") && params.get("quantita") != null) {
+            quantita = Integer.parseInt(params.get("quantita"));
+        }
+        double prezzo = -1;
+        if (params.containsKey("prezzo") && params.get("prezzo") != null) {
+            prezzo = Double.parseDouble(params.get("prezzo"));
+        }
+    String dataAcquisto = params.get("dataacquisto");
+
+    String nomeProdotto = params.get("nomeprodotto");
+    int stock = Integer.parseInt(params.get("stock"));
+    String descrizione = params.get("descrizione");
+    String imgSource = params.get("imgsource");
+    String autore = params.get("autore");
+    String genere = params.get("genere");
+
+    AcquistoDettagliato acquistoDettagliato = new AcquistoDettagliato();
+    acquistoDettagliato.setId(id);
+    acquistoDettagliato.setIdCliente(idCliente);
+    acquistoDettagliato.setIdProdotto(idProdotto);
+    acquistoDettagliato.setDataacquisto(dataAcquisto);
+    acquistoDettagliato.setQuantita(quantita);
+    acquistoDettagliato.setNomeprodotto(nomeProdotto);
+    acquistoDettagliato.setPrezzo(prezzo);
+    acquistoDettagliato.setStock(stock);
+    acquistoDettagliato.setDescrizione(descrizione);
+    acquistoDettagliato.setImgSource(imgSource);
+    acquistoDettagliato.setAutore(autore);
+    acquistoDettagliato.setGenere(genere);
+
+    return acquistoDettagliato;
+}
 
 }

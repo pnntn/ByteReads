@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.generation.origanboh_spring.entities.Acquisto;
+import com.generation.origanboh_spring.entities.AcquistoDettagliato;
 import com.generation.origanboh_spring.services.ClienteProdottoService;
 
 import lombok.Data;
@@ -26,7 +27,7 @@ public class ClienteProdottoRestController {
 
     // http://localhost:8080/api/clienteprodotto/byIdCliente?idCliente=[VALORE]
     @GetMapping("/byIdCliente")
-    public Map<Integer, Acquisto> getByIdCliente(@RequestParam(name = "idCliente", defaultValue = "0") int id, @RequestHeader("token") String token){
+    public Map<Integer, AcquistoDettagliato> getByIdCliente(@RequestParam(name = "idCliente", defaultValue = "0") int id, @RequestHeader("token") String token){
         System.out.println("ID cercato: " + id);
         String ruolo = token.split("-")[0];
         int idUtente = Integer.parseInt(token.split("-")[1]);

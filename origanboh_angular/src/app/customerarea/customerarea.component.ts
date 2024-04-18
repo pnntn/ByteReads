@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { CarrelloItem } from 'src/models/CarrelloItem';
+import { AcquistoDettagliato } from 'src/models/AcquistoDettagliato';
 import { Cliente } from 'src/models/Cliente';
 
 @Component({
@@ -10,7 +10,7 @@ import { Cliente } from 'src/models/Cliente';
 })
 export class CustomerareaComponent {
   cliente?: Cliente;
-  storicoAcquisti?: any;
+  storicoAcquisti?: AcquistoDettagliato[];
 
   constructor(private http: HttpClient) {
     this.http = http;
@@ -79,12 +79,13 @@ export class CustomerareaComponent {
     const params = new HttpParams().set('idCliente', idCliente);
 
     this.http
-      .get<CarrelloItem[]>(
+      .get<AcquistoDettagliato[]>(
         'http://localhost:8080/api/clienteprodotto/byIdCliente',
         { headers, params }
       )
       .subscribe((rispostaStorico) => {
-        this.storicoAcquisti = rispostaStorico;
+        this.storicoAcquisti = Object.values(rispostaStorico);
+        console.log(this.storicoAcquisti);
       });
   }
 
