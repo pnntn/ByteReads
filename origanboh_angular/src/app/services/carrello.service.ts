@@ -56,6 +56,11 @@ export class CarrelloService {
     }
   }
 
+  svuotaCarrello() {
+    this.carrello = [];
+    this.carrelloSubject.next([]);
+  }
+
   calcolaTotale(): number {
     const totale = this.carrello.reduce(
       (acc, item) => acc + item.libro.prezzo * item.quantita,

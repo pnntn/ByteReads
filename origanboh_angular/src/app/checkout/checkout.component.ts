@@ -129,9 +129,7 @@ export class CheckoutComponent {
   confermaOrdine() {
     this.passaAFaseConferma();
     this.submitInserisciOrdine();
-    for (let i = 0; i < this.carrello.length; i++) {
-      this.rimuoviDalCarrello(this.carrello[i]);
-    }
+    this.carrelloService.svuotaCarrello();
   }
 
   submitInserisciOrdine() {

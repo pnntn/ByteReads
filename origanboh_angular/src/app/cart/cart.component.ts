@@ -18,22 +18,7 @@ export class CartComponent implements OnInit, OnDestroy {
   constructor(
     private carrelloService: CarrelloService,
     private router: Router
-  ) {
-    // Creazione di un libro di prova
-    const libroDiProva: Libro = {
-      id: 1,
-      nomeprodotto: 'Il Signore degli Anelli',
-      autore: 'J.R.R. Tolkien',
-      prezzo: 25.99,
-      stock: 15,
-      genere: 'Fantasy',
-      descrizione: 'Descrizione del libro di prova',
-      imgsource: 'https://example.com/image.jpg', // Immagine di esempio
-    };
-
-    // Aggiunta del libro di prova al carrello
-    this.carrelloService.aggiungiAlCarrello(libroDiProva);
-  }
+  ) {}
 
   ngOnInit(): void {
     this.carrelloSubscription = this.carrelloService
