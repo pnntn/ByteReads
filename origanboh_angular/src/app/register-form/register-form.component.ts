@@ -41,26 +41,34 @@ export class RegisterFormComponent {
       token: token as string,
     });
 
+    // Controllo dell'esistenza dell'username prima di inviare la richiesta di registrazione
     this.http
-      .post<Cliente>('http://localhost:8080/api/cliente/insert', body, {
-        headers,
-      })
-      .subscribe((risposta) => {
-        if (!risposta) {
-          alert('Errore durante la registrazione');
-        } else {
-          this.clienti?.push(risposta);
-          this.login(formValues.username, formValues.password);
-        }
+    .get<boolean>(`http://localhost:8080/api/cliente/checkExistingUsername/${formValues.username}`)
+    .subscribe((exists) => {
+      if (exists) {
+        alert('Username già esistente, scegliere un altro username.');
+      } else {
+        // Se l'username non esiste già, procedi con la registrazione
+        this.http
+          .post<Cliente>('http://localhost:8080/api/cliente/insert', body, { headers })
+          .subscribe((risposta) => {
+            if (!risposta) {
+              alert('Errore durante la registrazione');
+            } else {
+              this.clienti?.push(risposta);
+              this.login(formValues.username, formValues.password);
+            }
 
-        this.formInserisciCliente.patchValue({
-          nome: '',
-          cognome: '',
-          username: '',
-          password: '',
-          indirizzo: '',
-        });
-      });
+            this.formInserisciCliente.patchValue({
+              nome: '',
+              cognome: '',
+              username: '',
+              password: '',
+              indirizzo: '',
+            });
+          });
+      }
+    });
   }
 
   login(username: string, password: string) {
