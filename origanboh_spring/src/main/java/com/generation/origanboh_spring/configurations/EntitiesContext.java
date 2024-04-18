@@ -96,37 +96,37 @@ public class EntitiesContext {
     }
 
     @Bean
-@Scope("prototype")
-public Acquisto newAcquisto(Map<String, String> params){
-    int id = -1;
-    if(params.containsKey("id") && params.get("id") != null){
-        id = Integer.parseInt(params.get("id"));
+    @Scope("prototype")
+    public Acquisto newAcquisto(Map<String, String> params){
+        int id = -1;
+        if(params.containsKey("id") && params.get("id") != null){
+            id = Integer.parseInt(params.get("id"));
+        }
+
+        int idCliente = -1;
+        if(params.containsKey("idcliente") && params.get("idcliente") != null){
+            idCliente = Integer.parseInt(params.get("idcliente"));
+        }
+
+        int idProdotto = -1;
+        if(params.containsKey("idprodotto") && params.get("idprodotto") != null){
+            idProdotto = Integer.parseInt(params.get("idprodotto"));
+        }
+
+        String dataacquisto = params.get("dataacquisto");
+        
+        int quantita = -1;
+        if(params.containsKey("quantita") && params.get("quantita") != null){
+            quantita = Integer.parseInt(params.get("quantita"));
+        }
+
+        Acquisto a = new Acquisto();
+        a.setId(id);
+        a.setIdCliente(idCliente);
+        a.setIdProdotto(idProdotto);
+        a.setDataacquisto(dataacquisto);
+        a.setQuantita(quantita);
+        return a;
     }
-
-    int idCliente = -1;
-    if(params.containsKey("idCliente") && params.get("idCliente") != null){
-        idCliente = Integer.parseInt(params.get("idCliente"));
-    }
-
-    int idProdotto = -1;
-    if(params.containsKey("idProdotto") && params.get("idProdotto") != null){
-        idProdotto = Integer.parseInt(params.get("idProdotto"));
-    }
-
-    String dataacquisto = params.get("dataacquisto");
-    int quantita = -1;
-    if(params.containsKey("quantita") && params.get("quantita") != null){
-        quantita = Integer.parseInt(params.get("quantita"));
-    }
-
-    Acquisto a = new Acquisto();
-    a.setId(id);
-    a.setIdCliente(idCliente);
-    a.setIdProdotto(idProdotto);
-    a.setDataacquisto(dataacquisto);
-    a.setQuantita(quantita);
-    return a;
-}
-
 
 }
