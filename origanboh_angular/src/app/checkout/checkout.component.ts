@@ -173,6 +173,7 @@ export class CheckoutComponent {
             this.ordineRiuscito = false;
           } else {
             this.ordineRiuscito = true;
+            console.log(risposta);
           }
         });
     }
