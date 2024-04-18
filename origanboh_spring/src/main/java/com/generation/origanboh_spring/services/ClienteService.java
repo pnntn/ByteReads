@@ -54,4 +54,10 @@ public class ClienteService extends GenericService<Integer, Cliente, ClienteDAO>
         return getDao().read().values() .stream() .map(x ->{return (Cliente)x;}).toList(); 
     }
 
+    //Controllo username
+    public boolean checkExistingUsername(String username) {
+        return getDao().checkExistingUsername(username);
+    }
+
+
 }

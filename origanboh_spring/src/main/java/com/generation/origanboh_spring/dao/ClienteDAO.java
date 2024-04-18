@@ -80,5 +80,13 @@ public class ClienteDAO implements IDAO<Integer, Cliente>{
         String query = "delete from utenti where id=?";
         database.eseguiDML(query, id+"");
     }
+
+    //Controllo username esistente
+    public boolean checkExistingUsername(String username) {
+        String query = "SELECT COUNT(*) FROM cliente WHERE username = ?";
+        Map<Integer, Map<String, String>> result = database.eseguiDQL(query, username);
+        int count = Integer.parseInt(result.get(1).get("count"));
+        return count > 0;
+    }
     
 }
