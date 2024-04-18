@@ -18,11 +18,14 @@ export class GestioneUtentiComponent {
   }
 
   getAllClienti(){
-    let token = 'ADMIN-1';
-    //TODO- STO USANDO UN TOKEN TEMPORANEO SOLO PER FARLO PARTIRE INTANTO
+    let token = sessionStorage.getItem("token");
+    if(token == null){
+      token = "";
+    }
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      token: token,
+      'token': token as string
     });
     this.http
       .get<Cliente[]>('http://localhost:8080/api/cliente/all', { headers })

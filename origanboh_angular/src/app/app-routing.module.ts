@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookdetailComponent } from './bookdetail/bookdetail.component';
 import { CustomerareaComponent } from './customerarea/customerarea.component';
 import { DevModeComponent } from './dev-mode/dev-mode.component';
 import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-utenti.component';
@@ -9,10 +8,6 @@ import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.componen
 import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
-  {
-    path: 'dettaglio',
-    component: BookdetailComponent,
-  },
   {
     path: 'area-admin',
     component: DevModeComponent,

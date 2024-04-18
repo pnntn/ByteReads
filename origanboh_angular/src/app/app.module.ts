@@ -8,7 +8,6 @@ import { NavbarComponent } from './header/navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { BooklistComponent } from './booklist/booklist.component';
 import { BookComponent } from './booklist/book/book.component';
-import { BookdetailComponent } from './bookdetail/bookdetail.component';
 import { CartComponent } from './cart/cart.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +30,6 @@ import { CheckoutComponent } from './checkout/checkout.component';
     FooterComponent,
     BooklistComponent,
     BookComponent,
-    BookdetailComponent,
     CartComponent,
     LoginFormComponent,
     CustomerareaComponent,

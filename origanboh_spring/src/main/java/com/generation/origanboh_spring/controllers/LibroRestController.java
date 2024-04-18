@@ -30,36 +30,14 @@ public class LibroRestController {
 
     // http://localhost:8080/api/libro/all
     @GetMapping("/all")
-    public ResponseEntity<List<Libro>> getAll(@RequestHeader("token") String token){
-
-        String ruolo = token.split("-")[0];
-        int idUtente = Integer.parseInt(token.split("-")[1]);
-
-        if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
-        }
-        else{
-            return ResponseEntity.status(HttpStatus.OK).body(libroService.findAll());     
-        }
+    public ResponseEntity<List<Libro>> getAll(){
+        return ResponseEntity.status(HttpStatus.OK).body(libroService.findAll());     
     }
     
      // http://localhost:8080/api/libro/byId?idLibro=[VALORE]
      @GetMapping("/byId")
-     public Libro getById(@RequestParam(name = "idLibro", defaultValue = "0") int id, @RequestHeader("token") String token){
-         System.out.println("ID cercato: " + id);
-         String ruolo = token.split("-")[0];
-         int idUtente = Integer.parseInt(token.split("-")[1]);
- 
-         if(id == 0){
-             return null;
-         }
-
-         if(ruolo.equalsIgnoreCase("NONE") || idUtente == -1){
-             return null;
-         }
-         else{
-             return libroService.findById(id);  
-         }
+     public Libro getById(@RequestParam(name = "idLibro", defaultValue = "0") int id){
+        return libroService.findById(id);   
      }
  
      @GetMapping("/delete")
@@ -106,7 +84,7 @@ public class LibroRestController {
  
  
      @GetMapping("/searchByName")
-     public List<Libro> searchByName(@RequestParam(name = "nomeprodotto", defaultValue = "") String nomeprodotto, @RequestHeader("token") String token){
+     public List<Libro> searchByName(@RequestParam(name = "nomeprodotto", defaultValue = "") String nomeprodotto){
         return libroService.findByName(nomeprodotto);
      }
 

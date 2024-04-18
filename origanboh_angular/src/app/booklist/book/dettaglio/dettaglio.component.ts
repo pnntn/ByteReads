@@ -16,10 +16,8 @@ export class DettaglioComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.queryParams['idLibro'];
-    const token = 'ADMIN-1';
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': token
     });
 
     if (id) {

@@ -48,11 +48,14 @@ export class GestioneProdottiComponent {
   }
 
   getAllLibri() {
-    let token = 'ADMIN-1';
-    //TODO- STO USANDO UN TOKEN TEMPORANEO SOLO PER FARLO PARTIRE INTANTO
+    let token = sessionStorage.getItem("token");
+    if(token == null){
+      token = "";
+    }
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      token: token,
+      'token': token as string
     });
     this.http
       .get<Libro[]>('http://localhost:8080/api/libro/all', { headers })
