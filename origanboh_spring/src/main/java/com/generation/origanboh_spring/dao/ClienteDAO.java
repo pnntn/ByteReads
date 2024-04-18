@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.generation.origanboh_spring.entities.Cliente;
 import com.generation.origanboh_spring.entities.Entity;
+import com.generation.origanboh_spring.entities.Utente;
 
 import lombok.Data;
 
@@ -83,10 +84,23 @@ public class ClienteDAO implements IDAO<Integer, Cliente>{
 
     //Controllo username esistente
     public boolean checkExistingUsername(String username) {
-        String query = "SELECT COUNT(*) FROM cliente WHERE username = ?";
+        String query = "SELECT * FROM utenti join clienti on utenti.id = clienti.id WHERE utenti.username=?";
         Map<Integer, Map<String, String>> result = database.eseguiDQL(query, username);
-        int count = Integer.parseInt(result.get(1).get("count"));
-        return count > 0;
+        Map<String, Cliente> ris = new HashMap<>();
+
+        for(Map<String, String> params : result.values()){
+            Cliente c = context.getBean(Cliente.class, params);
+          
+            ris.put(params.get("username"), c);
+        }
+
+        if(ris.containsKey(username)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
     }
     
 }
