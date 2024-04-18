@@ -135,9 +135,9 @@ export class CheckoutComponent {
   }
 
   submitInserisciOrdine() {
-    const idCliente = sessionStorage.getItem('token')?.split('-')[1];
+    const idcliente = sessionStorage.getItem('token')?.split('-')[1];
 
-    if (!idCliente) {
+    if (!idcliente) {
       console.error('ID cliente non disponibile');
       return;
     }
@@ -146,8 +146,8 @@ export class CheckoutComponent {
       const prodotto = this.carrello[i];
 
       const bodyObj = {
-        idCliente: idCliente,
-        idProdotto: prodotto.libro.id,
+        idcliente: idcliente,
+        idprodotto: prodotto.libro.id,
         dataacquisto: new Date().toISOString().slice(0, 10), // Ottieni la data corrente nel formato "YYYY-MM-DD"
         quantita: prodotto.quantita,
       };
