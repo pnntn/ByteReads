@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CarrelloItem } from 'src/models/CarrelloItem';
 import { Subscription } from 'rxjs';
 import { CarrelloService } from '../services/carrello.service';
 import { DatiPagamento } from 'src/models/DatiPagamento';
 import { Indirizzo } from 'src/models/Indirizzo';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-checkout',
@@ -37,9 +37,11 @@ export class CheckoutComponent {
   };
 
   constructor(
-    private carrelloService: CarrelloService,
-    private router: Router
-  ) {}
+    private http: HttpClient,
+    private carrelloService: CarrelloService
+  ) {
+    this.http = http;
+  }
 
   ngOnInit(): void {
     this.carrelloSubscription = this.carrelloService
@@ -117,5 +119,60 @@ export class CheckoutComponent {
 
   confermaOrdine() {
     this.passaAFaseConferma();
+    this.submitInserisciOrdine();
+    for (let i = 0; i < this.carrello.length; i++) {
+      this.rimuoviDalCarrello(this.carrello[i]);
+    }
+  }
+
+  submitInserisciOrdine() {
+    // Estrai l'ID cliente dal token di sessione
+    const idCliente = sessionStorage.getItem('token')?.split('-')[1];
+
+    // Se l'ID cliente non è disponibile, esci dalla funzione
+    if (!idCliente) {
+      console.error('ID cliente non disponibile');
+      return;
+    }
+
+    // Cicla attraverso gli elementi nel carrello
+    for (let i = 0; i < this.carrello.length; i++) {
+      const prodotto = this.carrello[i];
+
+      // Costruisci l'oggetto da inviare nel body della richiesta
+      const bodyObj = {
+        idCliente: idCliente,
+        idProdotto: prodotto.libro.id,
+        dataacquisto: new Date().toISOString().slice(0, 10), // Ottieni la data corrente nel formato "YYYY-MM-DD"
+        quantita: prodotto.quantita,
+      };
+
+      // Converti l'oggetto in formato JSON
+      const body = JSON.stringify(bodyObj);
+
+      // Ottieni il token di sessione
+      let token = sessionStorage.getItem('token') || '';
+
+      // Imposta l'header della richiesta
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        token: token,
+      });
+
+      // Effettua la richiesta HTTP per inserire l'ordine nel database
+      this.http
+        .post<CarrelloItem>(
+          'http://localhost:8080/api/clienteprodotto/insert',
+          body,
+          { headers }
+        )
+        .subscribe((risposta) => {
+          if (!risposta) {
+            alert("Errore durante l'esecuzione della richiesta");
+          } else {
+            alert('Invio avvenuto con successo');
+          }
+        });
+    }
   }
 }

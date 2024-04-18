@@ -38,10 +38,13 @@ CREATE TABLE libri (
 );
 
 CREATE TABLE prodotti_clienti (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     id_cliente INT,
     id_prodotto INT,
-    FOREIGN KEY (id_cliente) REFERENCES clienti(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (id_prodotto) REFERENCES prodotti(id) ON DELETE CASCADE ON UPDATE CASCADE
+    dataacquisto DATE,
+    quantita INT,
+    FOREIGN KEY (id_cliente) REFERENCES clienti(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_prodotto) REFERENCES prodotti(id) ON DELETE CASCADE
 );
 
 
