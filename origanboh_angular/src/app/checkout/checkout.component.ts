@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CarrelloItem } from 'src/models/CarrelloItem';
 import { Subscription } from 'rxjs';
 import { CarrelloService } from '../services/carrello.service';
 import { DatiPagamento } from 'src/models/DatiPagamento';
 import { Indirizzo } from 'src/models/Indirizzo';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-checkout',
@@ -20,6 +20,8 @@ export class CheckoutComponent {
   fasePagamento: boolean = false;
   faseConferma: boolean = false;
   faseRiepilogoFinale: boolean = false;
+
+  ordineRiuscito: boolean = false;
 
   //TODO: SISTEMARE IL SISTEMA DI INDIRIZZO
   indirizzo: Indirizzo = {
@@ -37,9 +39,11 @@ export class CheckoutComponent {
   };
 
   constructor(
-    private carrelloService: CarrelloService,
-    private router: Router
-  ) {}
+    private http: HttpClient,
+    private carrelloService: CarrelloService
+  ) {
+    this.http = http;
+  }
 
   ngOnInit(): void {
     this.carrelloSubscription = this.carrelloService
@@ -80,11 +84,18 @@ export class CheckoutComponent {
   }
 
   passaAFaseIndirizzo() {
-    this.faseRiepilogo = false;
-    this.faseIndirizzo = true;
-    this.fasePagamento = false;
-    this.faseRiepilogoFinale = false;
-    this.faseConferma = false;
+    const RuoloCliente = sessionStorage.getItem('token')?.split('-')[0];
+    if (RuoloCliente === 'CLIENTE') {
+      this.faseRiepilogo = false;
+      this.faseIndirizzo = true;
+      this.fasePagamento = false;
+      this.faseRiepilogoFinale = false;
+      this.faseConferma = false;
+    } else {
+      alert(
+        "Per procedere con l'acquisto devi aver fatto il login come cliente"
+      );
+    }
   }
 
   passaAFasePagamento() {
@@ -117,5 +128,54 @@ export class CheckoutComponent {
 
   confermaOrdine() {
     this.passaAFaseConferma();
+    this.submitInserisciOrdine();
+    for (let i = 0; i < this.carrello.length; i++) {
+      this.rimuoviDalCarrello(this.carrello[i]);
+    }
+  }
+
+  submitInserisciOrdine() {
+    const idcliente = sessionStorage.getItem('token')?.split('-')[1];
+
+    if (!idcliente) {
+      console.error('ID cliente non disponibile');
+      return;
+    }
+
+    for (let i = 0; i < this.carrello.length; i++) {
+      const prodotto = this.carrello[i];
+
+      const bodyObj = {
+        idcliente: idcliente,
+        idprodotto: prodotto.libro.id,
+        dataacquisto: new Date().toISOString().slice(0, 10), // Ottieni la data corrente nel formato "YYYY-MM-DD"
+        quantita: prodotto.quantita,
+      };
+
+      const body = JSON.stringify(bodyObj);
+
+      let token = sessionStorage.getItem('token') || '';
+
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        token: token,
+      });
+
+      this.http
+        .post<CarrelloItem>(
+          'http://localhost:8080/api/clienteprodotto/insert',
+          body,
+          { headers }
+        )
+        .subscribe((risposta) => {
+          if (!risposta) {
+            alert("Errore durante l'esecuzione della richiesta");
+            this.ordineRiuscito = false;
+          } else {
+            this.ordineRiuscito = true;
+            console.log(risposta);
+          }
+        });
+    }
   }
 }

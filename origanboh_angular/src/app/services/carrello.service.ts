@@ -32,11 +32,7 @@ export class CarrelloService {
     const index = this.carrello.findIndex((item) => item.libro.id === libro.id);
 
     if (index !== -1) {
-      if (this.carrello[index].quantita === 1) {
-        this.carrello.splice(index, 1);
-      } else {
-        this.carrello[index].quantita--;
-      }
+      this.carrello.splice(index, 1);
 
       this.carrelloSubject.next([...this.carrello]);
     }

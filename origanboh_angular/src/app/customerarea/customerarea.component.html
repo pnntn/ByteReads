@@ -1,4 +1,21 @@
-<h2>Area personale {{cliente?.username}}</h2>
-<h3>{{cliente?.nome}} {{cliente?.cognome}}</h3>
-<br>
-<h3>Indirizzo: {{cliente?.indirizzo}}</h3>
+<button (click)="logout()">LOGOUT</button>
+<h2>Area personale {{ cliente?.username }}</h2>
+<h3>{{ cliente?.nome }} {{ cliente?.cognome }}</h3>
+<br />
+<h3>Indirizzo: {{ cliente?.indirizzo }}</h3>
+<div *ngIf="storicoAcquisti">
+  <h2>Storico Acquisti</h2>
+  <ul>
+    <li *ngFor="let acquisto of storicoAcquisti">
+      <img
+        src="{{ acquisto.imgSource }}"
+        alt="{{ acquisto.nomeprodotto }}"
+        width="100"
+      />
+      <p>{{ acquisto.nomeprodotto }}</p>
+      <p>Prezzo: {{ acquisto.prezzo }}€</p>
+      <p>Data Acquisto: {{ acquisto.dataacquisto }}</p>
+      <p>Quantità: {{ acquisto.quantita }}</p>
+    </li>
+  </ul>
+</div>
