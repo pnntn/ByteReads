@@ -21,6 +21,8 @@ export class CheckoutComponent {
   faseConferma: boolean = false;
   faseRiepilogoFinale: boolean = false;
 
+  ordineRiuscito: boolean = false;
+
   //TODO: SISTEMARE IL SISTEMA DI INDIRIZZO
   indirizzo: Indirizzo = {
     nome: '',
@@ -82,11 +84,18 @@ export class CheckoutComponent {
   }
 
   passaAFaseIndirizzo() {
-    this.faseRiepilogo = false;
-    this.faseIndirizzo = true;
-    this.fasePagamento = false;
-    this.faseRiepilogoFinale = false;
-    this.faseConferma = false;
+    const RuoloCliente = sessionStorage.getItem('token')?.split('-')[0];
+    if (RuoloCliente === 'CLIENTE') {
+      this.faseRiepilogo = false;
+      this.faseIndirizzo = true;
+      this.fasePagamento = false;
+      this.faseRiepilogoFinale = false;
+      this.faseConferma = false;
+    } else {
+      alert(
+        "Per procedere con l'acquisto devi aver fatto il login come cliente"
+      );
+    }
   }
 
   passaAFasePagamento() {
@@ -126,20 +135,16 @@ export class CheckoutComponent {
   }
 
   submitInserisciOrdine() {
-    // Estrai l'ID cliente dal token di sessione
     const idCliente = sessionStorage.getItem('token')?.split('-')[1];
 
-    // Se l'ID cliente non è disponibile, esci dalla funzione
     if (!idCliente) {
       console.error('ID cliente non disponibile');
       return;
     }
 
-    // Cicla attraverso gli elementi nel carrello
     for (let i = 0; i < this.carrello.length; i++) {
       const prodotto = this.carrello[i];
 
-      // Costruisci l'oggetto da inviare nel body della richiesta
       const bodyObj = {
         idCliente: idCliente,
         idProdotto: prodotto.libro.id,
@@ -147,19 +152,15 @@ export class CheckoutComponent {
         quantita: prodotto.quantita,
       };
 
-      // Converti l'oggetto in formato JSON
       const body = JSON.stringify(bodyObj);
 
-      // Ottieni il token di sessione
       let token = sessionStorage.getItem('token') || '';
 
-      // Imposta l'header della richiesta
       const headers = new HttpHeaders({
         'Content-Type': 'application/json',
         token: token,
       });
 
-      // Effettua la richiesta HTTP per inserire l'ordine nel database
       this.http
         .post<CarrelloItem>(
           'http://localhost:8080/api/clienteprodotto/insert',
@@ -169,8 +170,9 @@ export class CheckoutComponent {
         .subscribe((risposta) => {
           if (!risposta) {
             alert("Errore durante l'esecuzione della richiesta");
+            this.ordineRiuscito = false;
           } else {
-            alert('Invio avvenuto con successo');
+            this.ordineRiuscito = true;
           }
         });
     }

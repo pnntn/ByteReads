@@ -1,5 +1,16 @@
 <button (click)="logout()">LOGOUT</button>
-<h2>Area personale {{cliente?.username}}</h2>
-<h3>{{cliente?.nome}} {{cliente?.cognome}}</h3>
-<br>
-<h3>Indirizzo: {{cliente?.indirizzo}}</h3>
+<h2>Area personale {{ cliente?.username }}</h2>
+<h3>{{ cliente?.nome }} {{ cliente?.cognome }}</h3>
+<br />
+<h3>Indirizzo: {{ cliente?.indirizzo }}</h3>
+<div *ngIf="storicoAcquisti">
+  <h2>Storico Acquisti</h2>
+  <ul>
+    <li *ngFor="let key of keys(storicoAcquisti)">
+      <p>ID Acquisto: {{ key }}</p>
+      <p>ID Prodotto: {{ storicoAcquisti[key].idProdotto }}</p>
+      <p>Data Acquisto: {{ storicoAcquisti[key].dataacquisto }}</p>
+      <p>Quantità: {{ storicoAcquisti[key].quantita }}</p>
+    </li>
+  </ul>
+</div>
