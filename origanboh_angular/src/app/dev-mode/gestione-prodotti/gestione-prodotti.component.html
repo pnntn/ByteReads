@@ -72,13 +72,17 @@
     </form>
 </div>
 
-<br>
-<button (click)="toggleInserisciLibro()" *ngIf="!isInserisciLibro">Inserisci un nuovo libro</button>
-<br>
-
-<div>
+<div class="ricerca">
     <app-ricerca-libro (search)="searchCallback($event)"></app-ricerca-libro>
 </div>
+
+<br>
+
+<div class="inserisci">
+    <button (click)="toggleInserisciLibro()" *ngIf="!isInserisciLibro">Inserisci un nuovo libro</button>
+</div>
+
+<br>
 
 <table>
         <thead>
@@ -90,6 +94,8 @@
             <th>Quantità</th>
             <th>Descrizione</th>
             <th>ImgSource</th>
+            <th></th>
+            <th></th>
         </thead>
         <tbody>
             <tr *ngFor="let libro of libri">
@@ -101,8 +107,8 @@
                 <td>{{ libro.stock }}</td>
                 <td>{{ libro.descrizione }}</td>
                 <td>{{ libro.imgsource }}</td>
-                <td><button (click)="deleteLibro(libro.id)">Elimina</button></td>
                 <td><button (click)="modificaLibro(libro)">Modifica</button></td>
+                <td><button (click)="deleteLibro(libro.id)">Elimina</button></td>
             </tr>
         </tbody>
 </table> 
