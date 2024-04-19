@@ -3,4 +3,14 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
+  margin-top: 20px;
+}
+.booklist-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.booklist-search {
+  align-self: flex-end;
 }

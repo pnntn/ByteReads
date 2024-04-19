@@ -4,6 +4,18 @@ body {
   /* height: 100vh; */
   background-color: #d3f6db;
   overflow-x: hidden;
+  body::after {
+    content: "";
+    display: block;
+    height: 2.5rem;
+  }
+
+  body::after {
+    content: "";
+    display: block;
+    height: 50px;
+    /* Set same as footer's height */
+  }
 }
 *,
 *::before,

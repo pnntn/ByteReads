@@ -1,10 +1,12 @@
-<div *ngIf="libro">
+<div *ngIf="libro" class="dettaglio-container">
   <img class="book_cover" [src]="libro.imgsource" />
-  <h2>{{ libro.nomeprodotto }}</h2>
-  <p>Autore: {{ libro.autore }}</p>
-  <p>Genere: {{ libro.genere }}</p>
-  <p>Prezzo: {{ libro.prezzo }} €</p>
-  <p>Quantità: {{ libro.stock }}</p>
-  <p>Descrizione: {{ libro.descrizione }}</p>
-  <button (click)="addToCart()">Aggiungi al carrello</button>
+  <div>
+    <h2>{{ libro.nomeprodotto }}</h2>
+    <p>Autore: {{ libro.autore }}</p>
+    <p>Genere: {{ libro.genere }}</p>
+    <p>Prezzo: {{ libro.prezzo }} €</p>
+    <p>Quantità: {{ libro.stock }}</p>
+    <p>Descrizione: {{ libro.descrizione }}</p>
+    <button (click)="addToCart()">Aggiungi al carrello</button>
+  </div>
 </div>

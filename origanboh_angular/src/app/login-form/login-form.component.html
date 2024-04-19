@@ -1,5 +1,8 @@
-<button onclick="document.getElementById('id01').style.display='block'">
-  Login
+<button
+  class="button-navbar"
+  onclick="document.getElementById('id01').style.display='block'"
+>
+  LOGIN
 </button>
 
 <!-- The Modal -->
@@ -23,7 +26,7 @@
         <label for="uname"><b>Username</b></label>
         <input
           type="text"
-          placeholder="Enter Username"
+          placeholder="Inserisci Username"
           name="username"
           required
           formControlName="username"
@@ -33,7 +36,7 @@
         <label for="psw"><b>Password</b></label>
         <input
           type="password"
-          placeholder="Enter Password"
+          placeholder="Inserisci Password"
           name="password"
           required
           formControlName="password"
@@ -42,7 +45,7 @@
 
       <button class="form-btn" type="submit">Login</button>
       <label>
-        <input type="checkbox" checked="checked" name="remember" /> Remember me
+        <input type="checkbox" checked="checked" name="remember" /> Ricordami
       </label>
     </div>
 
@@ -52,9 +55,11 @@
         onclick="document.getElementById('id01').style.display='none'"
         class="cancelbtn, form-btn"
       >
-        Cancel
+        Chiudi
       </button>
-      <span class="psw"><a href="#">Forgot password?</a></span>
+      <span class="psw"
+        ><a href="/password-dimenticata">Password dimenticata?</a></span
+      >
     </div>
   </form>
 </div>

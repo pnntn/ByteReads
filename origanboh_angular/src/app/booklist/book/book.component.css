@@ -2,10 +2,18 @@
   width: 200px;
   height: 400px;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.418);
+  background-color: #76c7a17e;
 }
 
 .book_cover {
-  height: 300px;
+  height: 250px;
+  width: 170px;
 }
 
 .book_title {

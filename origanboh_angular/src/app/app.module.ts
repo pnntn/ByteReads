@@ -21,6 +21,7 @@ import { RicercaLibroComponent } from './dev-mode/ricerca-libro/ricerca-libro.co
 import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
 import { RicercaClienteComponent } from './dev-mode/ricerca-cliente/ricerca-cliente.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PasswordDimenticataComponent } from './password-dimenticata/password-dimenticata.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     DettaglioComponent,
     RicercaClienteComponent,
     CheckoutComponent,
+    PasswordDimenticataComponent,
   ],
   imports: [
     BrowserModule,

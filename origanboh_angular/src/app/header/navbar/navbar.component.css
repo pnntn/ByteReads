@@ -1,0 +1,14 @@
+.navbar-buttons {
+  display: flex;
+  flex-direction: column;
+}
+.navbar-nav {
+  display: flex;
+  gap: 30px;
+}
+
+.button-navbar {
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px 20px;
+}

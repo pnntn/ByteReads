@@ -1,3 +1,11 @@
-<label for="nomeprodotto">Cerca per nome</label>
-<input (change)="getLibriByName()" type="text" name="nomeprodotto" [(ngModel)]="ricercaNome">
-<button (click)="getLibriByName()">Cerca</button><button (click)="reset()">X</button>
+<div class="ricerca-libro">
+  <button (click)="getLibriByName()">Cerca</button>
+  <input
+    (search)="getLibriByName()"
+    type="search"
+    name="nomeprodotto"
+    [(ngModel)]="ricercaNome"
+    placeholder="Cerca per nome"
+  />
+  <!-- <button (click)="reset()">X</button> -->
+</div>

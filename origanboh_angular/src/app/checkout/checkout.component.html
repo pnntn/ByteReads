@@ -154,11 +154,14 @@
 </div>
 
 <div *ngIf="faseConferma">
+  <div *ngIf="loading">
+    <h2>Caricamento in corso</h2>
+  </div>
   <div *ngIf="ordineRiuscito">
     <h1>Ordine confermato</h1>
     <h2>Presto ti arriverà a casa il tuo bel libro da leggere</h2>
   </div>
-  <div *ngIf="!ordineRiuscito">
+  <div *ngIf="!loading && !ordineRiuscito">
     <h1>Ordine fallito</h1>
     <h2>Ops... Qualcosa e' andato storto</h2>
   </div>

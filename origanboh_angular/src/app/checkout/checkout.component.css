@@ -1,0 +1,56 @@
+/* Stile generale */
+.carrello {
+  margin-bottom: 20px;
+}
+
+.libro_carrello {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-rimuovi {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.carrello-empty {
+  font-style: italic;
+}
+
+/* Stile per la fase di pagamento */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Stile per il riepilogo finale */
+.riepilogo-ordine {
+  margin-bottom: 20px;
+}
+
+.riepilogo-ordine h3 {
+  margin-bottom: 10px;
+}
+
+/* Stile per la fase di conferma */
+.conferma-ordine {
+  margin-bottom: 20px;
+}
+
+.conferma-ordine h1 {
+  color: #007bff;
+  margin-bottom: 10px;
+}

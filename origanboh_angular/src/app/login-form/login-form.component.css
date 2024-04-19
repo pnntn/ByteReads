@@ -39,12 +39,14 @@ h2 {
   margin: auto;
   border: 1px solid #888;
   width: 40%;
+  border-radius: 10px;
 }
 .container {
   display: flex;
   flex-direction: column;
   padding: 20px;
   gap: 20px;
+  border-radius: 10px;
 }
 .form-input {
   display: flex;
@@ -99,4 +101,9 @@ label {
   to {
     transform: scale(1);
   }
+}
+.button-navbar {
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px 20px;
 }

@@ -1,0 +1,19 @@
+.dettaglio-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  position: relative;
+}
+h2 {
+  font-size: 2rem;
+}
+button {
+  width: 200px;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+button:hover {
+  background-color: #16c172;
+  color: white;
+}

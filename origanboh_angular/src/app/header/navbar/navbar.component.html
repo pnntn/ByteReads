@@ -1,21 +1,28 @@
 <nav class="navbar">
   <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/">Home</a>
-    </li>
+    <div class="navbar-buttons">
+      <app-login-form *ngIf="!isLoggedIn()"></app-login-form>
+      <app-register-form *ngIf="!isLoggedIn()"></app-register-form>
+      <button *ngIf="isLoggedIn()" (click)="logout()" class="button-navbar">
+        LOGOUT
+      </button>
 
-    <app-login-form *ngIf="!isLoggedIn()"></app-login-form>
-    <app-register-form *ngIf="!isLoggedIn()"></app-register-form>
-    <button *ngIf="isLoggedIn()" (click)="logout()">LOGOUT</button>
-
-    <li *ngIf="isClient()" class="nav-item">
-      <a class="nav-link" routerLink="/area-cliente"
-        >Area Cliente<!--TODO cambiare Area Cliente col nome del cliente--></a
+      <button
+        *ngIf="isClient()"
+        class="nav-link button-navbar"
+        routerLink="/area-cliente"
       >
-    </li>
+        AREA CLIENTE
+      </button>
 
-    <li *ngIf="isAdmin()" class="nav-item">
-      <a class="nav-link" routerLink="/area-admin">Area Admin</a>
-    </li>
+      <button
+        *ngIf="isAdmin()"
+        class="nav-link button-navbar"
+        routerLink="/area-admin"
+      >
+        Area Admin
+      </button>
+    </div>
+    <app-cart></app-cart>
   </ul>
 </nav>

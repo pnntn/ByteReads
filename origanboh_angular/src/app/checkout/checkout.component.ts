@@ -22,6 +22,7 @@ export class CheckoutComponent {
   faseRiepilogoFinale: boolean = false;
 
   ordineRiuscito: boolean = false;
+  loading: boolean = true;
 
   //TODO: SISTEMARE IL SISTEMA DI INDIRIZZO
   indirizzo: Indirizzo = {
@@ -173,6 +174,7 @@ export class CheckoutComponent {
             this.ordineRiuscito = true;
             console.log(risposta);
           }
+          this.loading = false;
         });
     }
   }

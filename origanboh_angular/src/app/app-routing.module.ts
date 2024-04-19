@@ -6,6 +6,7 @@ import { GestioneUtentiComponent } from './dev-mode/gestione-utenti/gestione-ute
 import { GestioneProdottiComponent } from './dev-mode/gestione-prodotti/gestione-prodotti.component';
 import { DettaglioComponent } from './booklist/book/dettaglio/dettaglio.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { PasswordDimenticataComponent } from './password-dimenticata/password-dimenticata.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+  },
+  {
+    path: 'password-dimenticata',
+    component: PasswordDimenticataComponent,
   },
 ];
 

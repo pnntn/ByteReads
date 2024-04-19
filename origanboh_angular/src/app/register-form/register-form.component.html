@@ -1,5 +1,8 @@
-<button onclick="document.getElementById('id02').style.display='block'">
-  Registrati
+<button
+  class="button-navbar"
+  onclick="document.getElementById('id02').style.display='block'"
+>
+  REGISTRATI
 </button>
 
 <div id="id02" class="modal">
@@ -19,24 +22,49 @@
     <div class="container">
       <div class="form-input">
         <label for="username">Username: </label>
-        <input type="text" name="username" formControlName="username" />
-        <br /><br />
+        <input
+          type="text"
+          name="username"
+          formControlName="username"
+          placeholder="Inserisci l'username"
+        />
+        <br />
 
         <label for="password">Password: </label>
-        <input type="password" name="password" formControlName="password" />
-        <br /><br />
+        <input
+          type="password"
+          name="password"
+          formControlName="password"
+          placeholder="Inserisci la password"
+        />
+        <br />
 
         <label for="nome">Nome: </label>
-        <input type="text" name="nome" formControlName="nome" />
-        <br /><br />
+        <input
+          type="text"
+          name="nome"
+          formControlName="nome"
+          placeholder="Inserisci il nome"
+        />
+        <br />
 
         <label for="cognome">Cognome: </label>
-        <input type="text" name="cognome" formControlName="cognome" />
-        <br /><br />
+        <input
+          type="text"
+          name="cognome"
+          formControlName="cognome"
+          placeholder="Inserisci il cognome"
+        />
+        <br />
 
         <label for="indirizzo">Indirizzo: </label>
-        <input type="text" name="indirizzo" formControlName="indirizzo" />
-        <br /><br />
+        <input
+          type="text"
+          name="indirizzo"
+          formControlName="indirizzo"
+          placeholder="Inserisci l'indirizzo"
+        />
+        <br />
       </div>
 
       <button
@@ -46,13 +74,14 @@
       >
         Registrati
       </button>
-      <br />
+    </div>
+    <div class="container" style="background-color: #f1f1f1">
       <button
         type="button"
         onclick="document.getElementById('id02').style.display='none'"
         class="cancelbtn, form-btn"
       >
-        Cancel
+        Chiudi
       </button>
     </div>
   </form>
