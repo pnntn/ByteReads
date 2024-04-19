@@ -63,6 +63,8 @@ button.carrello-toggle:hover {
 
 .riepilogo {
   color: black;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cart-container {
@@ -80,4 +82,20 @@ button.carrello-toggle:hover {
 .btn-rimuovi:hover {
   background-color: #e6e6e6;
   color: red;
+}
+
+.btn-checkout {
+  background-color: #00000000;
+  width: 150px;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.btn-checkout:hover {
+  background-color: #d3f6db;
+}
+
+.btn-quantita {
+  border-radius: 8px;
+  cursor: pointer;
 }

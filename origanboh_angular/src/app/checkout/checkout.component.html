@@ -1,168 +1,187 @@
-<div *ngIf="faseRiepilogo">
-  <h2>Riepilogo</h2>
-  <div class="carrello">
-    <div *ngFor="let l of carrello" class="libro_carrello">
-      <h3>{{ l.libro.nomeprodotto }}</h3>
-      <p>Prezzo: {{ l.libro.prezzo }}€</p>
-      <p>
-        Quantità:
-        <button (click)="decrementaQuantita(l)" [disabled]="l.quantita === 1">
-          -
-        </button>
-        {{ l.quantita }}
-        <button (click)="incrementaQuantita(l)">+</button>
+<div class="checkout_container">
+  <div *ngIf="faseRiepilogo">
+    <h2>Riepilogo</h2>
+    <div class="carrello">
+      <div *ngFor="let l of carrello" class="libro_carrello">
+        <h3>{{ l.libro.nomeprodotto }}</h3>
+        <p>Prezzo: {{ l.libro.prezzo }}€</p>
+        <p>
+          Quantità:
+          <button (click)="decrementaQuantita(l)" [disabled]="l.quantita === 1">
+            -
+          </button>
+          {{ l.quantita }}
+          <button (click)="incrementaQuantita(l)">+</button>
+        </p>
+        <button (click)="rimuoviDalCarrello(l)" class="btn-rimuovi">X</button>
+      </div>
+      <div *ngIf="carrello.length > 0" class="riepilogo">
+        <p>Totale: {{ calcolaTotale() }}€</p>
+      </div>
+      <p *ngIf="carrello.length === 0" class="carrello-empty">
+        Il carrello è vuoto
       </p>
-      <button (click)="rimuoviDalCarrello(l)" class="btn-rimuovi">X</button>
+      <button (click)="passaAFaseIndirizzo()" class="button_checkout">
+        Continua
+      </button>
     </div>
-    <div *ngIf="carrello.length > 0" class="riepilogo">
-      <p>Totale: {{ calcolaTotale() }}€</p>
-    </div>
-    <p *ngIf="carrello.length === 0" class="carrello-empty">
-      Il carrello è vuoto
-    </p>
-    <button (click)="passaAFaseIndirizzo()">Continua</button>
   </div>
-</div>
-<div *ngIf="faseIndirizzo">
-  <!--PER ORA LO LASCIO COSI, VA CREATO IL FORM E VA FATTO IN MODO CHE SI COMPILI AUTOMATICAMENTE SE L'UTENTE E' LOGGATO-->
-  <h2>Indirizzo di spedizione</h2>
+  <div *ngIf="faseIndirizzo" class="fase-checkout">
+    <h2>Indirizzo di spedizione</h2>
 
-  <input
-    type="text"
-    class="form-control"
-    id="indirizzo_nome"
-    [(ngModel)]="indirizzo.nome"
-    name="indirizzo_nome"
-    placeholder="nome"
-    required
-  />
-  <input
-    type="text"
-    class="form-control"
-    id="indirizzo"
-    [(ngModel)]="indirizzo.indirizzo"
-    name="indirizzo"
-    placeholder="indirizzo"
-    required
-  />
-  <input
-    type="text"
-    class="form-control"
-    id="indirizzo_citta"
-    [(ngModel)]="indirizzo.citta"
-    name="indirizzo_citta"
-    placeholder="citta"
-    required
-  />
-  <input
-    type="text"
-    class="form-control"
-    id="indirizzo_cap"
-    [(ngModel)]="indirizzo.cap"
-    name="indirizzo_cap"
-    placeholder="CAP"
-    required
-  />
-  <button (click)="passaARiepilogo()">Indietro</button>
-  <button (click)="passaAFasePagamento()" type="submit" class="btn btn-primary">
-    Continua
-  </button>
-</div>
-
-<div *ngIf="fasePagamento">
-  <form>
-    <div class="form-group">
-      <label for="nome_carta">Nome sulla carta:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="nome_carta"
-        [(ngModel)]="datiPagamento.nomeCarta"
-        name="nome_carta"
-        required
-      />
+    <input
+      type="text"
+      class="form-control"
+      id="indirizzo_nome"
+      [(ngModel)]="indirizzo.nome"
+      name="indirizzo_nome"
+      placeholder="Nome"
+      required
+    />
+    <input
+      type="text"
+      class="form-control"
+      id="indirizzo"
+      [(ngModel)]="indirizzo.indirizzo"
+      name="indirizzo"
+      placeholder="Indirizzo"
+      required
+    />
+    <input
+      type="text"
+      class="form-control"
+      id="indirizzo_citta"
+      [(ngModel)]="indirizzo.citta"
+      name="indirizzo_citta"
+      placeholder="Città"
+      required
+    />
+    <input
+      type="text"
+      class="form-control"
+      id="indirizzo_cap"
+      [(ngModel)]="indirizzo.cap"
+      name="indirizzo_cap"
+      placeholder="CAP"
+      required
+    />
+    <div class="buttons-bottom">
+      <button (click)="passaARiepilogo()" class="button_checkout">
+        Indietro
+      </button>
+      <button
+        (click)="passaAFasePagamento()"
+        type="submit"
+        class="btn btn-primary button_checkout"
+      >
+        Continua
+      </button>
     </div>
-
-    <div class="form-group">
-      <label for="numero_carta">Numero della carta:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="numero_carta"
-        [(ngModel)]="datiPagamento.numeroCarta"
-        name="numero_carta"
-        required
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="scadenza_carta">Scadenza della carta:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="scadenza_carta"
-        [(ngModel)]="datiPagamento.scadenzaCarta"
-        name="scadenza_carta"
-        required
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="cvv_carta">CVV della carta:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="cvv_carta"
-        [(ngModel)]="datiPagamento.cvvCarta"
-        name="cvv_carta"
-        required
-      />
-    </div>
-
-    <button (click)="passaAFaseIndirizzo()">Indietro</button>
-    <button type="submit" class="btn btn-primary" (click)="confermaPagamento()">
-      Vai alla Conferma
-    </button>
-  </form>
-</div>
-<div *ngIf="faseRiepilogoFinale">
-  <h2>Riepilogo Ordine</h2>
-
-  <div *ngFor="let item of carrello">
-    <p>{{ item.libro.nomeprodotto }} - Quantità: {{ item.quantita }}</p>
-    <p>Prezzo: {{ item.libro.prezzo * item.quantita }}</p>
   </div>
 
-  <h3>Indirizzo di Spedizione</h3>
-  <p>Nome: {{ indirizzo.nome }}</p>
-  <p>Indirizzo: {{ indirizzo.indirizzo }}</p>
-  <p>Città: {{ indirizzo.citta }}</p>
-  <p>CAP: {{ indirizzo.cap }}</p>
+  <div *ngIf="fasePagamento" class="fase-checkout">
+    <h2>Dati pagamento</h2>
 
-  <h3>Dati di Pagamento</h3>
-  <p>Nome sulla carta: {{ datiPagamento.nomeCarta }}</p>
-  <p>Numero della carta: {{ datiPagamento.numeroCarta }}</p>
-  <p>Scadenza della carta: {{ datiPagamento.scadenzaCarta }}</p>
+    <input
+      type="text"
+      class="form-control"
+      id="nome_carta"
+      [(ngModel)]="datiPagamento.nomeCarta"
+      name="nome_carta"
+      required
+      placeholder="Nome"
+    />
 
-  <h3>Totale</h3>
-  <p>{{ calcolaTotale() }}</p>
+    <input
+      type="text"
+      class="form-control"
+      id="numero_carta"
+      [(ngModel)]="datiPagamento.numeroCarta"
+      name="numero_carta"
+      required
+      placeholder="Numero carta"
+    />
 
-  <button (click)="passaAFasePagamento()">Indietro</button>
-  <button class="btn btn-primary" (click)="confermaOrdine()">
-    Conferma Ordine
-  </button>
-</div>
+    <input
+      type="text"
+      class="form-control"
+      id="scadenza_carta"
+      [(ngModel)]="datiPagamento.scadenzaCarta"
+      name="scadenza_carta"
+      required
+      placeholder="Scadenza carta"
+    />
 
-<div *ngIf="faseConferma">
-  <div *ngIf="loading">
-    <h2>Caricamento in corso</h2>
+    <input
+      type="text"
+      class="form-control"
+      id="cvv_carta"
+      [(ngModel)]="datiPagamento.cvvCarta"
+      name="cvv_carta"
+      required
+      placeholder="CVV"
+    />
+
+    <div class="buttons-bottom">
+      <button (click)="passaAFaseIndirizzo()" class="button_checkout">
+        Indietro
+      </button>
+      <button
+        type="submit"
+        class="btn btn-primary button_checkout"
+        (click)="confermaPagamento()"
+      >
+        Vai alla Conferma
+      </button>
+    </div>
   </div>
-  <div *ngIf="ordineRiuscito">
-    <h1>Ordine confermato</h1>
-    <h2>Presto ti arriverà a casa il tuo bel libro da leggere</h2>
+  <div *ngIf="faseRiepilogoFinale" class="fase-riepilogo">
+    <h2>Riepilogo Ordine</h2>
+
+    <div *ngFor="let item of carrello" class="item-riepilogo">
+      <p>{{ item.libro.nomeprodotto }} - Quantità: {{ item.quantita }}</p>
+      <p>Prezzo: {{ item.libro.prezzo * item.quantita }}</p>
+    </div>
+
+    <h3>Indirizzo di Spedizione</h3>
+    <p>Nome: {{ indirizzo.nome }}</p>
+    <p>Indirizzo: {{ indirizzo.indirizzo }}</p>
+    <p>Città: {{ indirizzo.citta }}</p>
+    <p>CAP: {{ indirizzo.cap }}</p>
+
+    <h3>Dati di Pagamento</h3>
+    <p>Nome sulla carta: {{ datiPagamento.nomeCarta }}</p>
+    <p>Numero della carta: {{ datiPagamento.numeroCarta }}</p>
+    <p>Scadenza della carta: {{ datiPagamento.scadenzaCarta }}</p>
+
+    <h3 class="totale">
+      Totale: <span>{{ calcolaTotale() }} €</span>
+    </h3>
+
+    <div class="buttons-bottom">
+      <button (click)="passaAFasePagamento()" class="button_checkout">
+        Indietro
+      </button>
+      <button
+        class="btn btn-primary button_checkout"
+        (click)="confermaOrdine()"
+      >
+        Conferma Ordine
+      </button>
+    </div>
   </div>
-  <div *ngIf="!loading && !ordineRiuscito">
-    <h1>Ordine fallito</h1>
-    <h2>Ops... Qualcosa e' andato storto</h2>
+
+  <div *ngIf="faseConferma">
+    <div *ngIf="loading">
+      <h2>Caricamento in corso</h2>
+    </div>
+    <div *ngIf="ordineRiuscito">
+      <h1>Ordine confermato</h1>
+      <h2>Presto ti arriverà a casa il tuo bel libro da leggere</h2>
+    </div>
+    <div *ngIf="!loading && !ordineRiuscito">
+      <h1>Ordine fallito</h1>
+      <h2>Ops... Qualcosa e' andato storto</h2>
+    </div>
   </div>
 </div>

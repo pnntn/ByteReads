@@ -1,5 +1,10 @@
 header {
-  background-color: #16c172;
+  background: rgb(22, 193, 114);
+  background: linear-gradient(
+    180deg,
+    rgba(22, 193, 114, 1) 0%,
+    rgba(211, 246, 219, 1) 100%
+  );
   color: white;
   display: flex;
   justify-content: space-between;

@@ -1,8 +1,8 @@
-<button class="book" (click)="openBookDetail(libro)">
+<div class="book" (click)="openBookDetail(libro)">
   <img class="book_cover" [src]="libro?.imgsource" />
   <div class="book_title">{{ libro?.nomeprodotto }}</div>
-  <div>
-    <div>{{ libro?.autore }}</div>
+  <div class="book_bottom">
+    <div class="book_author">{{ libro?.autore }}</div>
     <div class="book_price">{{ libro?.prezzo }} €</div>
   </div>
-</button>
+</div>

@@ -6,12 +6,19 @@
         <h3>{{ l.libro.nomeprodotto }}</h3>
         <p>Prezzo: {{ l.libro.prezzo }}€</p>
         <p>
+          <br />
           Quantità:
-          <button (click)="decrementaQuantita(l)" [disabled]="l.quantita === 1">
+          <button
+            class="btn-quantita"
+            (click)="decrementaQuantita(l)"
+            [disabled]="l.quantita === 1"
+          >
             -
           </button>
           {{ l.quantita }}
-          <button (click)="incrementaQuantita(l)">+</button>
+          <button class="btn-quantita" (click)="incrementaQuantita(l)">
+            +
+          </button>
         </p>
       </div>
       <button (click)="rimuoviDalCarrello(l)" class="btn-rimuovi">X</button>
