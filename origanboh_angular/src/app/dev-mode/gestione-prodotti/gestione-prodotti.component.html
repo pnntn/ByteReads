@@ -1,82 +1,81 @@
-<div *ngIf="isModificaLibro" class="modal">
-    <h4>Modifica libro</h4>
-    <button (click)="toggleModificaLibro()">CHIUDI</button>
-    <form [formGroup]="formModificaLibro" (ngSubmit)="submitModificaLibro()">
-        <input type="hidden" formControlName="id">
-
-        <label for="nomeprodotto">Titolo: </label>
-        <input type="text" name="nomeprodotto" formControlName="nomeprodotto">
-        <br>
-
-        <label for="autore">Autore: </label>
-        <input type="text" name="autore" formControlName="autore">
-        <br>
-
-        <label for="genere">Genere: </label>
-        <input type="text" name="genere" formControlName="genere">
-        <br>
-
-        <label for="prezzo">Prezzo: </label>
-        <input type="number" name="prezzo" formControlName="prezzo">
-        <br>
-
-        <label for="stock">Quantità: </label>
-        <input type="number" name="stock" formControlName="stock">
-        <br>
-
-        <label for="descrizione">Descrizione: </label>
-        <input type="text" name="descrizione" formControlName="descrizione">
-        <br>
-
-        <label for="imgsource">Link immagine: </label>
-        <input type="text" name="imgsource" formControlName="imgsource">
-        <br>
-        
-        <input type="submit" value="Conferma">
-    </form>
-</div>
-<br>
-<div *ngIf="isInserisciLibro" class="modal">
-    <h4>Nuovo libro</h4>
-    <button (click)="toggleInserisciLibro()">CHIUDI</button>
-    <form [formGroup]="formInserisciLibro" (ngSubmit)="submitInserisciLibro()">
-        <label for="nomeprodotto">Titolo: </label>
-        <input type="text" name="nomeprodotto" formControlName="nomeprodotto">
-        <br>
-
-        <label for="autore">Autore: </label>
-        <input type="text" name="autore" formControlName="autore">
-        <br>
-
-        <label for="genere">Genere: </label>
-        <input type="text" name="genere" formControlName="genere">
-        <br>
-
-        <label for="prezzo">Prezzo: </label>
-        <input type="number" name="prezzo" formControlName="prezzo">
-        <br>
-
-        <label for="stock">Quantità: </label>
-        <input type="number" name="stock" formControlName="stock">
-        <br>
-
-        <label for="descrizione">Descrizione: </label>
-        <input type="text" name="descrizione" formControlName="descrizione">
-        <br>
-
-        <label for="imgsource">Link immagine: </label>
-        <input type="text" name="imgsource" formControlName="imgsource">
-        <br>
-
-        <input type="submit" value="Conferma">
-    </form>
-</div>
-
 <div class="ricerca">
     <app-ricerca-libro (search)="searchCallback($event)"></app-ricerca-libro>
 </div>
-
 <br>
+<div *ngIf="isModificaLibro" class="modal">
+    <h4>MODIFICA LIBRO</h4>
+    <form [formGroup]="formModificaLibro" (ngSubmit)="submitModificaLibro()">
+        <input type="hidden" formControlName="id">
+
+        <label for="nomeprodotto"></label>
+        <input type="text" name="nomeprodotto" formControlName="nomeprodotto" placeholder="Inserisci titolo">
+        <br>
+
+        <label for="autore"></label>
+        <input type="text" name="autore" formControlName="autore" placeholder="Inserisci autore">
+        <br>
+
+        <label for="genere"></label>
+        <input type="text" name="genere" formControlName="genere" placeholder="Inserisci genere">
+        <br>
+
+        <label for="prezzo"></label>
+        <input type="number" name="prezzo" formControlName="prezzo" placeholder="Inserisci prezzo">
+        <br>
+
+        <label for="stock"></label>
+        <input type="number" name="stock" formControlName="stock" placeholder="Inserisci stock">
+        <br>
+
+        <label for="descrizione"></label>
+        <input type="text" name="descrizione" formControlName="descrizione" placeholder="Inserisci descrizione">
+        <br>
+
+        <label for="imgsource"></label>
+        <input type="text" name="imgsource" formControlName="imgsource" placeholder="Inserisci link immagine">
+        <br>
+        <br>
+        <button (click)="toggleModificaLibro()">CHIUDI</button>
+        <input type="submit" value="CONFERMA">
+    </form>
+</div>
+
+<div *ngIf="isInserisciLibro" class="modal">
+    <h4>INSERIMENTO NUOVO LIBRO</h4>
+    <form [formGroup]="formInserisciLibro" (ngSubmit)="submitInserisciLibro()">
+        <label for="nomeprodotto"></label>
+        <input type="text" name="nomeprodotto" formControlName="nomeprodotto" placeholder="Inserisci titolo">
+        <br>
+        
+        <label for="autore"></label>
+        <input type="text" name="autore" formControlName="autore" placeholder="Inserisci autore">
+        <br>
+
+        <label for="genere"></label>
+        <input type="text" name="genere" formControlName="genere" placeholder="Inserisci genere">
+        <br>
+
+        <label for="prezzo"></label>
+        <input type="number" name="prezzo" formControlName="prezzo" placeholder="Inserisci prezzo">
+        <br>
+
+        <label for="stock"></label>
+        <input type="number" name="stock" formControlName="stock" placeholder="Inserisci stock">
+        <br>
+
+        <label for="descrizione"></label>
+        <input type="text" name="descrizione" formControlName="descrizione" placeholder="Inserisci descrizione">
+        <br>
+
+        <label for="imgsource"></label>
+        <input type="text" name="imgsource" formControlName="imgsource" placeholder="Inserisci link immagine">
+        <br>
+        <br>
+        <button (click)="toggleInserisciLibro()">CHIUDI</button>
+        <input type="submit" value="CONFERMA">
+    </form>
+</div>
+
 
 <div class="inserisci">
     <button (click)="toggleInserisciLibro()" *ngIf="!isInserisciLibro">Inserisci un nuovo libro</button>

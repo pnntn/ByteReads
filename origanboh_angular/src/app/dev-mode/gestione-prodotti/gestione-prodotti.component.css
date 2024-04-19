@@ -26,3 +26,11 @@ table th {
     width: 100%;
     display: flex;
 }
+
+.modal {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
