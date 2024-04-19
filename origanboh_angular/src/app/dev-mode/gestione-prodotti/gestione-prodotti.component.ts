@@ -96,14 +96,24 @@ export class GestioneProdottiComponent {
   }
 
   toggleInserisciLibro(){
+    if (this.isModificaLibro) {
+        this.isModificaLibro = false;
+    }
     this.isInserisciLibro = !this.isInserisciLibro;
   }
 
   toggleModificaLibro(){
-    this.isModificaLibro = !this.isModificaLibro;
+      if (this.isInserisciLibro) {
+          this.isInserisciLibro = false;
+      }
+
+      this.isModificaLibro = !this.isModificaLibro;     
   }
 
+
+
   modificaLibro(libro : Libro){
+    this.toggleModificaLibro()
     this.formModificaLibro.patchValue(
       {
         id : libro.id,

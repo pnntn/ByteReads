@@ -1,7 +1,7 @@
 <div class="ricerca">
     <app-ricerca-libro (search)="searchCallback($event)"></app-ricerca-libro>
 </div>
-<br>
+
 <div *ngIf="isModificaLibro" class="modal">
     <h4>MODIFICA LIBRO</h4>
     <form [formGroup]="formModificaLibro" (ngSubmit)="submitModificaLibro()">
@@ -76,6 +76,7 @@
     </form>
 </div>
 
+<br>
 
 <div class="inserisci">
     <button (click)="toggleInserisciLibro()" *ngIf="!isInserisciLibro">Inserisci un nuovo libro</button>
