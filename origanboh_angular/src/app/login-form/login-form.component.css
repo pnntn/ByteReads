@@ -35,10 +35,11 @@ h2 {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #ffffff;
   margin: auto;
   border: 1px solid #888;
   width: 40%;
+  justify-content: center;
   border-radius: 10px;
 }
 .container {
@@ -47,17 +48,25 @@ h2 {
   padding: 20px;
   gap: 20px;
   border-radius: 10px;
+  justify-content:center ;
 }
 .form-input {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  position: relative;
+  height: 100%;
+  
 }
 .form-btn {
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(19, 18, 18, 0.701);
+  color: #fefefe;
+  justify-content: center;
+
 }
 .form-btn:hover {
-  background-color: rgb(206, 206, 206);
+  background-color: rgb(255, 255, 255);
+  color: #000;
 }
 
 /* The Close Button */
@@ -70,7 +79,11 @@ h2 {
   font-size: 35px;
   font-weight: bold;
 }
-
+h1{
+  display: flex;
+  color: #000;
+  justify-content: center;
+}
 /* Close button on hover */
 .close:hover,
 .close:focus {
